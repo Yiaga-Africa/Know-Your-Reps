@@ -14,18 +14,21 @@ const App = () => {
         }
         setServerBody(body.express)
     }
-    
+
     // useEffect(() => {
     //     callBackendAPI()
     // })
 
     return (
         <>
-            <div>{isClicked ? serverBody : ""}</div>
-            {!isClicked ? <div className="cursor-pointer bg-gray-200 inline-block px-2 py-1 hover:bg-gray-400 rounded-md"
-                onClick={callBackendAPI}>
-                Click Me!!
-            </div> : ''}
+            <div className="flex justify-center items-center min-h-screen">
+                <div>{isClicked ? serverBody : ""}</div>
+
+                {!isClicked ? <div className="cursor-pointer bg-gray-200 inline-block px-2 py-1 hover:bg-gray-400 rounded-md"
+                    onClick={callBackendAPI}>
+                    Click Me!!
+                </div> : ''}
+            </div>
         </>
     );
 }
