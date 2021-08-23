@@ -9,6 +9,7 @@ import { far } from "@fortawesome/free-regular-svg-icons"
 import DashboardPage from "../pages/DashboardPage"
 import LegislatorsPage from "../pages/LegislatorsPage"
 import StateInfoPage from "../pages/StateInfoPage"
+import SpecificLegislatorPage from "../pages/SpecificLegislatorPage"
 
 const App = () => {
     // const [isClicked, setIsClicked] = useState(false)
@@ -42,6 +43,14 @@ const App = () => {
             <Route
                 path={`${Routes.STATE_INFO}/:stateId`}
                 component={StateInfoPage}
+            />
+            <Route
+                path={Routes.SPECIFIC_SENATOR}
+                component={SpecificLegislatorPage}
+            />
+            <Route
+                path={Routes.SPECIFIC_REPRESENTATIVE}
+                component={SpecificLegislatorPage}
             />
         </Switch>
     )
