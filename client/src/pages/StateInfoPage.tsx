@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client"
 import React, { useState } from "react"
-import { useParams, withRouter } from "react-router-dom"
+import { Redirect, useParams, withRouter } from "react-router-dom"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar/NavBar"
 import stateLogo from "../assets/images/statePicImage.png"
@@ -43,6 +43,8 @@ function dynamicSort(property: string) {
 const StateInfoPage = () => {
     // @ts-ignore
     let { stateId } = useParams()
+    if (isNaN(parseInt(stateId))) return <Redirect to="/" />
+
     let stateName = `%${MapData[stateId - 1].name}%`
     const [searchValue, setSearchValue] = useState("")
 
@@ -71,6 +73,7 @@ const StateInfoPage = () => {
                 district
                 gender
                 status
+                party
             }
 
             representatives(where: { state: { _ilike: $stateName } }) {
@@ -79,36 +82,14 @@ const StateInfoPage = () => {
                 district
                 gender
                 status
+                party
             }
         }
     `
 
-    // const GET_LEGISLATORS = gql`
-    //     query GetLegislators($stateId: Int!) {
-    //         senators_by_pk(id: $stateId) {
-    //             id
-    //             name
-    //             district
-    //             state
-    //             status
-    //         }
-    //         representatives_by_pk(id: $stateId) {
-    //             id
-    //             name
-    //             district
-    //             state
-    //             gender
-    //             status
-    //         }
-    //     }
-    // `
-
     const { loading, error, data } = useQuery(GET_STATE_DATA, {
         variables: { stateId, stateName },
     })
-
-    // if (loading) return <>Loading...</>
-    // if (error) return <>{`${error}`}</>
 
     const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value)
@@ -252,6 +233,7 @@ const StateInfoPage = () => {
                                 <div className="table-cell w-[25%]">
                                     District
                                 </div>
+                                <div className="table-cell">Party</div>
                                 <div className="table-cell w-[20%]">Status</div>
                                 <div className="table-cell w-[10%]">Gender</div>
                                 <div className="table-cell w-[10%]">

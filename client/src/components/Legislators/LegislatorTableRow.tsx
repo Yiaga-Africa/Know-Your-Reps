@@ -1,5 +1,6 @@
-import React from 'react'
-import { Legislator } from '../../pages/LegislatorsPage'
+import React from "react"
+import { Link } from "react-router-dom"
+import { Legislator } from "../../pages/LegislatorsPage"
 
 // type Legislator = {
 //     name: string,
@@ -17,18 +18,32 @@ type Props = {
 }
 
 const LegislatorTableRow = ({ legislator, index }: Props) => {
+    const type = legislator.status.toLowerCase().includes("senator")
+        ? "senators"
+        : "representatives"
+
     return (
-        <div className={`table-row ${index % 2 !== 1 && 'bg-gray-100'}`} key={index}>
-            <div className="table-cell pl-4 py-8 pr-4 capitalize">{legislator.name?.toLowerCase()}</div>
-            <div className="table-cell py-8 break-words pr-2 capitalize">{legislator.district?.toLowerCase()}</div>
-            <div className="table-cell py-8 capitalize">{legislator.state.toLowerCase()}</div>
+        <div
+            className={`table-row ${index % 2 !== 1 && "bg-gray-100"}`}
+            key={index}
+        >
+            <div className="table-cell pl-4 py-8 pr-4 capitalize">
+                {legislator.name?.toLowerCase()}
+            </div>
+            <div className="table-cell py-8 break-words pr-2 capitalize">
+                {legislator.district?.toLowerCase()}
+            </div>
+            <div className="table-cell py-8 capitalize">
+                {legislator.state.toLowerCase()}
+            </div>
             <div className="table-cell py-8">{legislator.age}</div>
             <div className="table-cell py-8">{legislator.party}</div>
             <div className="table-cell py-8">{legislator.status}</div>
             <div className="table-cell py-8">{legislator.gender}</div>
             <div className="table-cell">
-                <div
-                    className="
+                <Link to={`/legislators/${type}/${legislator.id}`}>
+                    <div
+                        className="
                         cursor-pointer 
                         rounded-xl 
                         border-[3px] 
@@ -40,9 +55,10 @@ const LegislatorTableRow = ({ legislator, index }: Props) => {
                         px-2
                         my-8
                     "
-                >
-                    View Profile
-                </div>
+                    >
+                        View Profile
+                    </div>
+                </Link>
             </div>
         </div>
     )
