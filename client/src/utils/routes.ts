@@ -1,6 +1,6 @@
 const DASHBOARD = "/"
 const LEGISLATORS = "/legislators"
-const STATE_LEGISLATORS = "/legislators/state"
+const STATE_INFO = "/legislators/states"
 const FEDERAL_LEGISLATORS = "/legislators/federal"
 const SPECIFIC_LEGISLATOR = "/legislators/:id"
 const BILLS = "/bills"
@@ -13,7 +13,7 @@ export {
     SPECIFIC_LEGISLATOR,
     BILLS,
     SPECIFIC_BILL,
-    STATE_LEGISLATORS,
+    STATE_INFO,
     FEDERAL_LEGISLATORS,
     ANALYSIS,
 }
