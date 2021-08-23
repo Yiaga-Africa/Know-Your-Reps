@@ -1,29 +1,16 @@
 import React from 'react'
 import { Legislator } from '../../pages/LegislatorsPage'
 
-// type Legislator = {
-//     name: string,
-//     district: string,
-//     status: string,
-//     gender: string,
-//     party: string,
-//     age: number,
-//     state: string
-// }
-
 type Props = {
     legislator: Legislator
     index: number
 }
 
-const LegislatorTableRow = ({ legislator, index }: Props) => {
+const StateLegislatorTableRow = ({ legislator, index }: Props) => {
     return (
         <div className={`table-row ${index % 2 !== 1 && 'bg-gray-100'}`} key={index}>
             <div className="table-cell pl-4 py-8 pr-4 capitalize">{legislator.name?.toLowerCase()}</div>
             <div className="table-cell py-8 break-words pr-2 capitalize">{legislator.district?.toLowerCase()}</div>
-            <div className="table-cell py-8 capitalize">{legislator.state.toLowerCase()}</div>
-            <div className="table-cell py-8">{legislator.age}</div>
-            <div className="table-cell py-8">{legislator.party}</div>
             <div className="table-cell py-8">{legislator.status}</div>
             <div className="table-cell py-8">{legislator.gender}</div>
             <div className="table-cell">
@@ -48,4 +35,4 @@ const LegislatorTableRow = ({ legislator, index }: Props) => {
     )
 }
 
-export default LegislatorTableRow
+export default StateLegislatorTableRow

@@ -11,7 +11,7 @@ const NavBarItem = ({ name, route }: NavBarLink) => {
         <>
             <NavLink
                 to={route}
-                isActive={(match) => !match?.isExact ? false : true}
+                isActive={(match) => route === match?.url}
                 activeClassName="bg-kyl-green text-white px-4"
                 className="p-2 hover:bg-cadmium hover:text-white"
             >
