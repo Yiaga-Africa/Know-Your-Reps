@@ -1,0 +1,110 @@
+﻿S/N ,NAME ,POLITICALPARTY,STATE ,SENATORIAL DISTRICT ,AGE ,GENDER,STATUS
+1,Orji Uzor Kalu,APC,ABIA,Abia North,58,Male,New Senator
+2,Theodore Ahamefule Orji,PDP,ABIA,Abia Central,67,Male,Returning Senator
+3,Enyinnaya H. Abaribe,PDP,ABIA,Abia South,57,Male,Returning Senator
+4,Aishatu Dahiru Binani,APC,ADAMAWA STATE,Adamawa Central,47,Female,New Senator
+5,Isiaku Elijah Cliff,PDP,ADAMAWA STATE,Adamawa North,41,Male,New Senator
+6,Yaro Binos Dauda,PDP,ADAMAWA STATE,Adamawa South,63,Male,New Senator
+7,Eyakenyi Akon Etim,PDP,AKWA IBOM STATE,Akwa Ibom South,58,Female,New Senator
+8,Albert Bassey Akpan,PDP,AKWA IBOM STATE,Akwa Ibom North East,45,Male,Returning Senator
+9,Ekpeyong Christopher Stephen,PDP,AKWA IBOM STATE,Akwa Ibom North West,64,Male,New Senator
+10,Stella Oduah,PDP,ANAMBRA STATE,Anambra North,56,Female,Returning Senator
+11,Ifeanyi Ubah,YPP,ANAMBRA STATE,Anambra South,47,Male,New Senator
+12,Uche Lilian Ekwunife,PDP,ANAMBRA STATE,Anambra Central,47,Female,New Senator
+13,Bulkachuwa Adamu Muhammed,APC,BAUCHI STATE,Bauchi North,78,Male,New Senator
+14,Haliru Dauda Jika,APC,BAUCHI STATE,Bauchi Central,42,Male,New Senator
+15,Lawal Gumau,APC,BAUCHI STATE,Bauchi South,52,Male,Returning Senator
+16,Ehwrudjakpo Lawrence,PDP,BAYELSA STATE,Bayelsa West,53,Male,New Senator
+17,Diri Duoye,PDP,BAYELSA STATE,Bayelsa Central,59,Male,New Senator
+18,Degi Eremienyo Biobaraku,APC,BAYELSA STATE,Bayelsa East,59,Male,New Senator
+19,Abba Patrick Moro,PDP,BENUE STATE,Benue South,60,Male,New Senator
+20,Gabriel Torwua Suswam,PDP,BENUE STATE,Benue North East,53,Male,New Senator
+21,Emmanuel Orker-Jev,PDP,BENUE STATE,Benue North West,55,Male,New Senator
+22,Ali Mohammed Ndume,APC,BORNO STATE,Borno South,59,Male,Returning Senator
+23,Abubakar Suaib Kyari,APC,BORNO STATE,Borno North,55,Male,Returning Senator
+24,Kasshim Shettima,APC,BORNO STATE,Borno Central,52,Male,New Senator
+25,Gershom Henry Bassey,PDP,CROSS RIVER STATE,Cross River South,56,Male,Returning Senator
+26,Onor Sandy Ojang,PDP,CROSS RIVER STATE,Cross River Central,52,Male,New Senator
+27,Rose Okoji Oko,PDP,CROSS RIVER STATE,Cross River North,62,Female,Returning Senator
+28,Ovie Augustine Omo-Agege,APC,DELTA STATE,Delta Central,55,Male,Returning Senator
+29,James Ebiowu Manager,PDP,DELTA STATE,Delta South,58,Male,Returning Senator
+30,Peter Nwaoboshi,PDP,DELTA STATE,Delta North,61,Male,Returning Senator
+31,Micheal Ama Nnachi,PDP,EBONYI STATE,Ebonyi South,50,Male,New Senator
+32,Samuel Ominyi Egwu,PDP,EBONYI STATE,Ebonyi North,64,Male,Returning Senator
+33,Obinna Joseph Ogba,PDP,EBONYI STATE,Ebonyi Central,58,Male,Returning Senator
+34,Francis Asekhame Alimikhena,APC,EDO STATE,Edo North,71,Male,Returning Senator
+35,Matthew Aisagbonriodion Urhoghide,PDP,EDO STATE,Edo South,63,Male,Returning Senator
+36,Clifford Akhimienmona Ordia,PDP,EDO STATE,Edo Central,58,Male,Returning Senator
+37,Opeyemi Bamidele Micheal,APC,EKITI STATE,Ekiti Central,55,Male,New Senator
+38,Adetumbi Olubunmi,APC,EKITI STATE,Ekiti North,63,Male,New Senator
+39,Adedayo Adeyeye Clement,APC,EKITI STATE,Ekiti South,61,Male,New Senator
+40,Chimaroke Nnamani,PDP,ENUGU STATE,Enugu East,58,Male,New Senator
+41,Ike Ekweremadu,PDP,ENUGU STATE,Enugu West,56,Male,Returning Senator
+42,Chukwuka Godfrey Utazi,PDP,ENUGU STATE,Enugu North,57,Male,Returning Senator
+43,Philip Aduda,PDP,FCT,FCT,49,Male,Returning Senator
+44,Danjuma Mohammed Goje,APC,GOMBE STATE,Gombe Central,66,Male,Returning Senator
+45,Saidu Alkali Ahmed,APC,GOMBE STATE,Gombe North,48,Male,New Senator
+46,Amos Kilawangs Bulus,APC,GOMBE STATE,Gombe South,59,Male,New Senator
+47,Rochas Okorocha,APC,IMO STATE,Imo West,59,Male,New Senator
+48,Onyewuchi Ezenna Francis,PDP,IMO STATE,Imo East,50,Male,New Senator
+49,  ,,IMO STATE,Imo North,,,Supplementary
+50,Danladi Abdulahi Sankara,APC,JIGAWA STATE,Jigawa North West,64,Male,New Senator
+51,Hassan Ibrahim Hadeija,APC,JIGAWA STATE,Jigawa North East,52,Male,New Senator
+52,Sabo Nakudu Mohammed,APC,JIGAWA STATE,Jigawa South West,58,Male,New Senator
+53,Kwari Suleiman Abdu,APC,KADUNA STATE,Kaduna North,56,Male,New Senator
+54,Uba Sani,APC,KADUNA STATE,Kaduna Central,47,Male,New Senator
+55,Danjuma Tella La'ah,PDP,KADUNA STATE,Kaduna South,58,Male,Returning Senator
+56,Mandiya Bello,APC,KATSINA STATE,Katsina South,54,Male,New Senator
+57,Ahmed Baba Kaita,APC,KATSINA STATE,Katsina North,50,Male,Returning Senator
+58,Abdullahi Kabir Barkiya,APC,KATSINA STATE,Katsina Central,58,Male,New Senator
+59,Ibrahim Shekarau,APC,KANO STATE,Kano Central,63,Male,New Senator
+60,Barau Jibrin,APC,KANO STATE,Kano North,59,Male,Returning Senator
+61,Kabiru Ibrahim Gaya,APC,KANO STATE,Kano South,66,Male,Returning Senator
+62,Bala Ibn Na'allah,APC,KEBBI STATE,Kebbi South,56,Male,Returning Senator
+63,Adamu Aliero,APC,KEBBI STATE,Kebbi Central,62,Male,Returning Senator
+64,Abdullahi Abubakar Yahaya,APC,KEBBI STATE,Kebbi North,68,Male,Returning Senator
+65,Dino Melaye,PDP,KOGI STATE,Kogi West,44,Male,Returning Senator
+66,Yakubu Oseni,APC,KOGI STATE,Kogi Central,43,Male,New Senator
+67,Isah Jibrin,APC,KOGI STATE,Kogi East,45,Male,New Senator
+68,Umar Suleiman Sadiq,APC,KWARA STATE,Kwara North,48,Male,New Senator
+69,Yahaya Ibrahim Oloriegbe,APC,KWARA STATE,Kwara Central,57,Male,New Senator
+70,Oyelola Yisa Ashiru,APC,KWARA STATE,Kwara South,63,Male,New Senator
+71,Oluremi Tinubu,APC,LAGOS STATE,Lagos Central,58,Female,Returning Senator
+72,Solomon Adeola Olamilekan,APC,LAGOS STATE,Lagos West,49,Male,Returning Senator
+73,Osinowo Sikiru Adebayo,APC,LAGOS STATE,Lagos East,62,Male,New Senator
+74,Abdullahi Adamu,APC,NASARAWA STATE,Nasarawa West,72,Male,Returning Senator
+75,Tanko Al-Makura,APC,NASARAWA STATE,Nasarawa South,65,Male,New Senator
+76,Akwashiki Godiya,APC,NASARAWA STATE,Nasarawa North,45,Male,New Senator
+77,Mohammed Sani Musa,APC,NIGER STATE,Niger East,54,Male,New Senator
+78,Abdullahi Aliyu Sabi,APC,NIGER STATE,Niger North,51,Male,Returning Senator
+79,Bima Mohammed Enagi,APC,NIGER STATE,Niger South,59,Male,New Senator
+80,Ibikunle Oyelaja Amosun,APC,OGUN STATE,Ogun Central,60,Male,New Senator
+81,Mustapha Ramoni Olalekan,APC,OGUN STATE,Ogun East,58,Male,New Senator
+82,Odebiyi Tolulope Akinremi,APC,OGUN STATE,Ogun West,54,Male,New Senator
+83,Tofowomo Olubukola,PDP,ONDO STATE,Ondo South,61,Male,New Senator
+84,Pius Ayo Akinyelure,PDP,ONDO STATE,Ondo Central,62,Male,New Senator
+85,Robert Ajayi Boroffice,APC,ONDO STATE,Ondo North,69,Male,Returning Senator
+86,Ajibola Surajudeen Bashir,APC,OSUN STATE,Osun Central,46,Male,New Senator
+87,Fadahunsi Francis Adenigba,PDP,OSUN STATE,Osun East,66,Male,New Senator
+88,Adelere Adeyemi Oriolowo,APC,OSUN STATE,Osun West,62,Male,New Senator
+89,Kola Ademola Balogun,PDP,OYO STATE,Oyo South,62,Male,New Senator
+90,Teslim Kolawole Folarin,APC,OYO STATE,Oyo Central,54,Male,New Senator
+91,Abdulfatai Buhari,APC,OYO STATE,Oyo North,54,Male,Returning Senator
+92,Dimka Hezekiah Ayuba,APC,PLATEAU STATE,Plateau Central,66,Male,New Senator
+93,Gyang Dung Istifanus,PDP,PLATEAU STATE,Plateau North,55,Male,New Senator
+94,Ignatius D. Longjan,APC,PLATEAU STATE,Plateau South,72,Male,New Senator
+95,Mpigi Barinda,PDP,RIVERS STATE,Rivers South East,57,Male,New Senator
+96,George Sekibo,PDP,RIVERS STATE,Rivers East,61,Male,New Senator
+97,Betty Apiafi,PDP,RIVERS STATE,Rivers West,49,Female,New Senator
+98,Aliyu Magatakarda Wamakko,APC,SOKOTO STATE,Sokoto North,65,Male,Returning Senator
+99,Shehu Abubakar Tambuwal,APC,SOKOTO STATE,Sokoto South,60,Male,New Senator
+100,Ibrahim Abdullahi Gobir,APC,SOKOTO STATE,Sokoto East,65,Male,New Senator
+101,Emmanuel Bwacha,PDP,TARABA STATE,Taraba South,56,Male,Returning Senator
+102,Isa Suaibu Lau,PDP,TARABA STATE,Taraba North,63,Male,Returning Senator
+103,Yusuf Abubakar Yusuf,APC,TARABA STATE,Taraba Central,62,Male,Returning Senator
+104,Ahmad Ibrahim Lawan,APC,YOBE STATE,Yobe North,59,Male,Returning Senator
+105,Bomai Ibrahim Mohammed,APC,YOBE STATE,Yobe South,58,Male,New Senator
+106,Ibrahim Alhaji Geidam,APC,YOBE STATE,Yobe East,62,Male,New Senator
+107,Abdulaziz Yari,APC,ZAMFARA STATE,Zamfara West,51,Male,New Senator
+108,Kaura Tijanni Yahaya,APC,ZAMFARA STATE,Zamfara North,60,Male,Returning Senator
+109,Aliyu Ikra Bilbis,APC,ZAMFARA STATE,Zamfara Central,62,Male,New Senator
