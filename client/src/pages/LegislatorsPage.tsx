@@ -48,8 +48,8 @@ const LegislatorsPage = () => {
     const generalData = [
         { number: 109, description: "Senators", image: senateLogo },
         { number: 360, description: "HOR Memebers", image: repsLogo },
-        { number: 360, description: "Male Voters", image: maleImage },
-        { number: 804, description: "Female Voters", image: femaleImage },
+        { number: 360, description: "Male Legislators", image: maleImage },
+        { number: 804, description: "Female Legislators", image: femaleImage },
     ]
 
     const [searchValue, setSearchValue] = useState("")
