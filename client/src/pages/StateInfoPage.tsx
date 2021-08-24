@@ -236,7 +236,7 @@ const StateInfoPage = () => {
                                 <div className="table-cell">Party</div>
                                 <div className="table-cell w-[20%]">Status</div>
                                 <div className="table-cell w-[10%]">Gender</div>
-                                <div className="table-cell w-[10%]">
+                                <div className="table-cell w-[12%]">
                                     Details
                                 </div>
                             </div>

@@ -37,7 +37,7 @@ const NavBar = () => {
 
     return (
         <>
-            <div className="flex items-center h-16 shadow-md px-48 justify-between">
+            <div className="flex items-center h-16 shadow-md px-48 justify-between sticky top-0 bg-white">
                 <Link to="/">
                     <img src={kylLogo} />
                 </Link>

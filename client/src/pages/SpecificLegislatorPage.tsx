@@ -46,8 +46,6 @@ const SpecificLegislatorPage = () => {
             location === "senators"
                 ? data.senators_by_pk
                 : data.representatives_by_pk
-
-        console.log(legislatorData)
     }
 
     const [searchValue, setSearchValue] = useState("")
