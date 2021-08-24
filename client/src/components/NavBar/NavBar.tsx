@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import { Link, withRouter } from "react-router-dom"
-import * as Routes from "../../utils/routes"
+import * as Routes from '../../utils/routes'
 import NavBarItem from "./NavBarItem"
-import kylLogo from "../../assets/images/KYLLogoImage.svg"
+import kylLogo from '../../assets/images/KYLLogoImage.svg'
 import { gql, useQuery } from "@apollo/client"
 
 const NavBar = () => {
@@ -12,11 +12,11 @@ const NavBar = () => {
     }
 
     const navLinks: NavLink[] = [
-        { name: "Dashboard", route: Routes.DASHBOARD },
-        { name: "Legislators", route: Routes.LEGISLATORS },
-        { name: "Bills", route: Routes.BILLS },
-        { name: "Analysis", route: Routes.ANALYSIS },
-        { name: "Resources", route: Routes.RESOURCES },
+        { name: 'Dashboard', route: Routes.DASHBOARD },
+        { name: 'Legislators', route: Routes.LEGISLATORS },
+        { name: 'Bills', route: Routes.BILLS },
+        { name: 'Analysis', route: Routes.ANALYSIS },
+        { name: 'Resources', route: Routes.RESOURCES }
     ]
 
     const BOOKS_QUERY = gql`
@@ -43,13 +43,11 @@ const NavBar = () => {
                 </Link>
 
                 <div className="flex space-x-6 flex-wrap text-sm">
-                    {navLinks.map((navlink, index) => (
-                        <NavBarItem
-                            key={index}
-                            name={navlink.name}
-                            route={navlink.route}
-                        />
-                    ))}
+                    {
+                        navLinks.map((navlink, index) => (
+                            <NavBarItem key={index} name={navlink.name} route={navlink.route} />
+                        ))
+                    }
                 </div>
             </div>
         </>
