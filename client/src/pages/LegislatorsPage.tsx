@@ -46,8 +46,8 @@ function dynamicSort(property: string) {
 
 const LegislatorsPage = () => {
     const generalData = [
-        { number: 109, description: "Senators", image: senateLogo },
-        { number: 360, description: "HOR Memebers", image: repsLogo },
+        { description: "Senators", image: senateLogo },
+        { description: "HOR Members", image: repsLogo },
         { number: 360, description: "Male Legislators", image: maleImage },
         { number: 804, description: "Female Legislators", image: femaleImage },
     ]
@@ -111,7 +111,6 @@ const LegislatorsPage = () => {
                     {generalData.map((element, index) => (
                         <StatisticCard
                             key={index}
-                            number={element.number}
                             description={element.description}
                             image={element.image}
                         />
@@ -248,7 +247,7 @@ const LegislatorsPage = () => {
                                 {!loading ? (
                                     legislatorList
                                         .sort(dynamicSort("state"))
-                                        .map((legislator: Legislator) =>
+                                        .map((legislator: Legislator, index) =>
                                             /*
                                                 1st ternary evaluates the name and searchtext else moves on
                                                 2nd ternary checks the seachtext and where they represent then move on to next ternary
@@ -262,7 +261,7 @@ const LegislatorsPage = () => {
                                             searchValue === "" ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // ternary evaluates the name and searchtext else moves on
@@ -273,7 +272,7 @@ const LegislatorsPage = () => {
                                                   ) ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // checks the seachtext and where they represent
@@ -284,7 +283,7 @@ const LegislatorsPage = () => {
                                                   ) ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // ternary checks the state
@@ -295,7 +294,7 @@ const LegislatorsPage = () => {
                                                   ) ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // ternary checks the age
@@ -306,7 +305,7 @@ const LegislatorsPage = () => {
                                                   ) ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // ternary checks the party
@@ -317,7 +316,7 @@ const LegislatorsPage = () => {
                                                   ) ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // ternary checks the gender
@@ -328,7 +327,7 @@ const LegislatorsPage = () => {
                                                   ) ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // ternary checks the office
@@ -339,7 +338,7 @@ const LegislatorsPage = () => {
                                                   ) ? (
                                                 <LegislatorTableRow
                                                     legislator={legislator}
-                                                    index={legislator.id}
+                                                    index={index}
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : (

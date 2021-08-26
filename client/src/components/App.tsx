@@ -10,6 +10,7 @@ import DashboardPage from "../pages/DashboardPage"
 import LegislatorsPage from "../pages/LegislatorsPage"
 import StateInfoPage from "../pages/StateInfoPage"
 import SpecificLegislatorPage from "../pages/SpecificLegislatorPage"
+import '../utils/firebase.ts'
 
 const App = () => {
     // const [isClicked, setIsClicked] = useState(false)
