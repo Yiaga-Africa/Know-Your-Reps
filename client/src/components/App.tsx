@@ -10,7 +10,9 @@ import DashboardPage from "../pages/DashboardPage"
 import LegislatorsPage from "../pages/LegislatorsPage"
 import StateInfoPage from "../pages/StateInfoPage"
 import SpecificLegislatorPage from "../pages/SpecificLegislatorPage"
-import '../utils/firebase.ts'
+import "../utils/firebase.ts"
+import BillsPage from "../pages/BillsPage"
+import AnalysisPage from "../pages/AnalysisPage"
 
 const App = () => {
     // const [isClicked, setIsClicked] = useState(false)
@@ -36,23 +38,31 @@ const App = () => {
     return (
         <Switch>
             <Route exact path={Routes.DASHBOARD} component={DashboardPage} />
+
             <Route
                 exact
                 path={Routes.LEGISLATORS}
                 component={LegislatorsPage}
             />
+
             <Route
                 path={`${Routes.STATE_INFO}/:stateId`}
                 component={StateInfoPage}
             />
+
             <Route
                 path={Routes.SPECIFIC_SENATOR}
                 component={SpecificLegislatorPage}
             />
+
             <Route
                 path={Routes.SPECIFIC_REPRESENTATIVE}
                 component={SpecificLegislatorPage}
             />
+
+            <Route exact path={Routes.BILLS} component={BillsPage} />
+
+            <Route exact path={Routes.ANALYSIS} component={AnalysisPage} />
         </Switch>
     )
 }
