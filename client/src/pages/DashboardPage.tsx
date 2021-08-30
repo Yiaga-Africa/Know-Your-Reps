@@ -82,7 +82,7 @@ const DashboardPage = () => {
                     ))}
 
                     <Link
-                        to="#"
+                        to="https://yiagaafricadatahub.org/analysis"
                         className="flex w-56 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white"
                     >
                         <div className="flex flex-col mr-8 font-semibold text-lg">
