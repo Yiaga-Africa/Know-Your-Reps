@@ -5,12 +5,15 @@ import NavBar from "../../components/NavBar/NavBar"
 import HORMemberAnalysis from "./HORMemberAnalysis"
 
 const AnalysisPage = () => {
+    const setSelection = ({ selected }: any) =>
+        selected ? "border-b-2  border-kyl-green" : ""
+
     return (
         <>
             <NavBar />
             <div className="flex justify-center mt-6">
                 {/* Sidebar */}
-                <div className="flex flex-row w-[70%]">
+                <div className="flex flex-row">
                     <Tab.Group vertical manual>
                         {/* Legislative Data */}
                         <Tab.List className="flex flex-col space-y-4">
@@ -19,11 +22,21 @@ const AnalysisPage = () => {
                                     Legislative Data
                                 </div>
                                 <ul className="flex flex-col items-start pt-2 space-y-1">
-                                    <Tab>HOR Member Analysis</Tab>
-                                    <Tab>Female Representation</Tab>
-                                    <Tab>Youth Representation</Tab>
-                                    <Tab>Political Party Representation</Tab>
-                                    <Tab>Bill Analysis</Tab>
+                                    <Tab className={setSelection}>
+                                        HOR Member Analysis
+                                    </Tab>
+                                    <Tab className={setSelection}>
+                                        Female Representation
+                                    </Tab>
+                                    <Tab className={setSelection}>
+                                        Youth Representation
+                                    </Tab>
+                                    <Tab className={setSelection}>
+                                        Political Party Representation
+                                    </Tab>
+                                    <Tab className={setSelection}>
+                                        Bill Analysis
+                                    </Tab>
                                 </ul>
                             </div>
 
@@ -32,10 +45,18 @@ const AnalysisPage = () => {
                                     Election Data
                                 </div>
                                 <ul className="flex flex-col items-start pt-2 space-y-1">
-                                    <Tab>Registered Voters by Region</Tab>
-                                    <Tab>Registered Voters by State</Tab>
-                                    <Tab>Polling Unit Analysis</Tab>
-                                    <Tab>Election Results</Tab>
+                                    <Tab className={setSelection}>
+                                        Registered Voters by Region
+                                    </Tab>
+                                    <Tab className={setSelection}>
+                                        Registered Voters by State
+                                    </Tab>
+                                    <Tab className={setSelection}>
+                                        Polling Unit Analysis
+                                    </Tab>
+                                    <Tab className={setSelection}>
+                                        Election Results
+                                    </Tab>
                                 </ul>
                             </div>
                         </Tab.List>
