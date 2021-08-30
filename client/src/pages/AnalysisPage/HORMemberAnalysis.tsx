@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import LegislatorsByRegion from "../../components/Analysis/LegislatorsByRegion"
 import LegislatorStatusChart from "../../components/Analysis/LegislatorStatusChart"
 
+import { Link } from "react-router-dom"
+
 const HORMemberAnalysis = () => {
     const legislatorData = [
         { description: "Senators", image: senateLogo },
@@ -24,11 +26,16 @@ const HORMemberAnalysis = () => {
                     />
                 ))}
 
+                <Link 
+                to="/legislators"
+                >
+
                 <div className="flex w-36 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white">
                     <span className="mr-4">View List</span>
+                    </div>
 
                     <FontAwesomeIcon icon={["fas", "play"]} />
-                </div>
+                </Link>
             </div>
 
             <div className="flex flex-col shadow-md p-4">
