@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import LegislatorTableRow from "../components/Legislators/LegislatorTableRow"
 import { gql, useQuery } from "@apollo/client"
 import { Link } from "react-router-dom"
+import Searchbar from "../components/Searchbar"
 
 export type Legislator = {
     id: number
@@ -199,32 +200,14 @@ const LegislatorsPage = () => {
                         </div>
 
                         {/* Searchbox */}
-                        <div className="flex flex-row items-center justify-between border-[3px] px-4 py-2 border-gray-400 text-gray-400">
-                            {/* Input */}
-                            <input
-                                placeholder={
-                                    "Search by Name, District, State, Age, Party, Status, Gender"
-                                }
-                                value={searchValue}
-                                className="outline-none w-full placeholder-gray-400 text-gray-700"
-                                onChange={onSearchChange}
-                            />
-
-                            {/* Clear text icon */}
-                            {searchValue !== "" && (
-                                <FontAwesomeIcon
-                                    icon={["fas", "times-circle"]}
-                                    onClick={clearSearch}
-                                    className="cursor-pointer hover:text-gray-700"
-                                />
-                            )}
-
-                            {/* Search Icon */}
-                            <FontAwesomeIcon
-                                icon={["fas", "search"]}
-                                className="ml-3"
-                            />
-                        </div>
+                        <Searchbar
+                            clearSearch={clearSearch}
+                            searchValue={searchValue}
+                            onChange={onSearchChange}
+                            placeholder={
+                                "Search by Name, District, Status, Gender"
+                            }
+                        />
 
                         {/* Legislators Table */}
                         <div className="table-fixed table w-full border-[1px]">

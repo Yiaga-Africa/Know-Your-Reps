@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
     northCentral: "#2E58A6",
     northEast: "#BE894A",
     northWest: "#BEAC83",

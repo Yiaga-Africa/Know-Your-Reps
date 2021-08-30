@@ -17,6 +17,7 @@ import pdf from "../assets/images/PDFImage.svg"
 import { Link } from "react-router-dom"
 import Footer from "../components/Footer"
 import Map from "../components/Map"
+import { firebaseStorage } from "../utils/firebase"
 
 const DashboardPage = () => {
     const legislatorList = [

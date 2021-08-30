@@ -23,6 +23,7 @@ const SpecificLegislatorPage = () => {
                           age
                           gender
                           party
+                          status
                       }
                   }
               `
@@ -35,6 +36,7 @@ const SpecificLegislatorPage = () => {
                           age
                           gender
                           party
+                          status
                       }
                   }
               `
@@ -75,7 +77,7 @@ const SpecificLegislatorPage = () => {
                         {/* Image */}
                         <div>
                             <FontAwesomeIcon
-                                icon={["fas", "user"]}
+                                icon={["fas", "user-secret"]}
                                 className="text-[1000%]"
                             />
                         </div>
@@ -100,6 +102,29 @@ const SpecificLegislatorPage = () => {
                                         <span className="capitalize font-normal pl-1">
                                             {legislatorData &&
                                                 legislatorData.name.toLowerCase()}
+                                        </span>
+                                    )}
+                                </>
+                            </div>
+
+                            <div className="text-lg font-semibold flex items-center">
+                                <>
+                                    Status:{" "}
+                                    {loading ? (
+                                        // <PlaceholderLoading />
+                                        <ReactPlaceholder
+                                            ready={!loading}
+                                            type={"text"}
+                                            rows={1}
+                                            color="#e8e9eb"
+                                            style={loaderStyle}
+                                        >
+                                            <></>
+                                        </ReactPlaceholder>
+                                    ) : (
+                                        <span className="capitalize font-normal pl-1">
+                                            {legislatorData &&
+                                                legislatorData.status.toLowerCase()}
                                         </span>
                                     )}
                                 </>
@@ -171,6 +196,7 @@ const SpecificLegislatorPage = () => {
                                                 legislatorData.age}
                                         </span>
                                     )}
+                                    <div className="text-xs ml-1">*at the time of election</div>
                                 </>
                             </div>
 

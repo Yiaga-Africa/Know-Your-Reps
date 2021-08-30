@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Legislator } from "./LegislatorsPage"
 import { MapData } from "../utils/mapData"
 import StateLegislatorTableRow from "../components/Legislators/StateLegislatorTableRow"
+import Searchbar from "../components/Searchbar"
 
 type StateData = {
     id: number
@@ -196,32 +197,14 @@ const StateInfoPage = () => {
                     {/* Search */}
                     <div className="flex flex-col w-[61rem] space-y-4">
                         {/* Searchbox */}
-                        <div className="flex flex-row items-center justify-between border-[3px] px-4 py-2 border-gray-400 text-gray-400">
-                            {/* Input */}
-                            <input
-                                placeholder={
-                                    "Search by Name, District, Status, Gender"
-                                }
-                                value={searchValue}
-                                className="outline-none w-full placeholder-gray-400 text-gray-700"
-                                onChange={onSearchChange}
-                            />
-
-                            {/* Clear text icon */}
-                            {searchValue !== "" && (
-                                <FontAwesomeIcon
-                                    icon={["fas", "times-circle"]}
-                                    onClick={clearSearch}
-                                    className="cursor-pointer hover:text-gray-700"
-                                />
-                            )}
-
-                            {/* Search Icon */}
-                            <FontAwesomeIcon
-                                icon={["fas", "search"]}
-                                className="ml-3"
-                            />
-                        </div>
+                        <Searchbar
+                            placeholder={
+                                "Search by Name, District, Status, Gender"
+                            }
+                            clearSearch={clearSearch}
+                            onChange={onSearchChange}
+                            searchValue={searchValue}
+                        />
 
                         {/* Legislators Table */}
                         <div className="table-fixed table w-full border-[1px]">

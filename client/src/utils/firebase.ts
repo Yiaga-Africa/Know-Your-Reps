@@ -1,19 +1,23 @@
 import firebase from "firebase/app"
-import "firebase/analytics"
+// import "firebase/analytics"
 import "firebase/firestore"
 import "firebase/storage"
 
-const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyABnv-l9X-fPaqOW5YqxFxPh4jq_06XrCE",
-    authDomain: "know-you-legislators.firebaseapp.com",
-    projectId: "know-you-legislators",
-    storageBucket: "know-you-legislators.appspot.com",
-    messagingSenderId: "284456454206",
-    appId: "1:284456454206:web:487bf02400c023ffcba96f",
-    measurementId: "G-06V82YZB2G",
-})
+const config = {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+}
 
-firebaseApp.analytics()
+const firebaseApp = !firebase.apps.length
+    ? firebase.initializeApp(config)
+    : firebase.app()
+
+// firebaseApp.analytics()
 const firestore = firebaseApp.firestore()
 const firebaseStorage = firebaseApp.storage()
 
