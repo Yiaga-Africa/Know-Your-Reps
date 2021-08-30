@@ -32,7 +32,7 @@ const HORMemberAnalysis = () => {
                 >
                     
                     <div className="flex flex-col mr-8 font-semibold text-lg">
-                    <span className="mr-4">View List</span>
+                    <span>View List</span>
                     </div>
 
                     <FontAwesomeIcon icon={["fas", "play"]} />
