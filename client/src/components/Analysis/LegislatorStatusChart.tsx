@@ -58,14 +58,17 @@ const LegislatorStatusChart = () => {
     return (
         <>
             {!loading && (
-                <Doughnut
-                    data={chartData}
-                    options={{
-                        radius: "90%",
-                        responsive: true,
-                        aspectRatio: 1,
-                    }}
-                />
+                <div className="flex flex-row justify-center">
+                    <Doughnut
+                        height={400}
+                        data={chartData}
+                        options={{
+                            responsive: false,
+                            aspectRatio: 2,
+                            maintainAspectRatio: false,
+                        }}
+                    />
+                </div>
             )}
         </>
     )

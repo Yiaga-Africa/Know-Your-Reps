@@ -26,13 +26,12 @@ const HORMemberAnalysis = () => {
                     />
                 ))}
 
-                <Link 
-                to="/legislators"
-                className="flex w-36 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white"
+                <Link
+                    to="/legislators"
+                    className="flex w-36 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white"
                 >
-                    
-                    <div className="flex flex-col mr-8 font-semibold text-lg">
-                    <span>View List</span>
+                    <div className="flex flex-col mr-4 font-semibold text-lg">
+                        <span>View List</span>
                     </div>
 
                     <FontAwesomeIcon icon={["fas", "play"]} />

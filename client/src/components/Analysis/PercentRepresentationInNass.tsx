@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client"
 import React from "react"
+import { useRef } from "react"
 import { Doughnut } from "react-chartjs-2"
 
 const PercentRepresentationInNass = () => {
@@ -83,14 +84,17 @@ const PercentRepresentationInNass = () => {
     return (
         <>
             {!loading && (
-                <Doughnut
-                    data={chartData}
-                    options={{
-                        radius: "70%",
-                        responsive: true,
-                        aspectRatio: 1,
-                    }}
-                />
+                <div className="flex flex-row justify-center">
+                    <Doughnut
+                        height={400}
+                        data={chartData}
+                        options={{
+                            responsive: false,
+                            aspectRatio: 2,
+                            maintainAspectRatio: false,
+                        }}
+                    />
+                </div>
             )}
         </>
     )

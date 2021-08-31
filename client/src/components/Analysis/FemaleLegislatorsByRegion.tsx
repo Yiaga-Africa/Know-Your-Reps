@@ -2,6 +2,7 @@ import React from "react"
 import { useQuery, gql } from "@apollo/client"
 import { Bar } from "react-chartjs-2"
 import { MapData, colors } from "../../utils/mapData"
+import { useRef } from "react"
 
 const FemaleLegislatorsByRegion = () => {
     const northEastList: string[] = []
@@ -148,6 +149,8 @@ const FemaleLegislatorsByRegion = () => {
         )
         // console.log(data.northCentral.aggregate)
     }
+
+    const ref = useRef()
 
     return <>{!loading && <Bar data={chartData} />}</>
 }
