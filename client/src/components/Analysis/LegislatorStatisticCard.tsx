@@ -10,7 +10,7 @@ type CardProps = {
     isVoter?: boolean
 }
 
-const StatisticCard = ({
+const LegislatorStatisticCard = ({
     index,
     number,
     description,
@@ -82,4 +82,4 @@ const StatisticCard = ({
     )
 }
 
-export default StatisticCard
+export default LegislatorStatisticCard

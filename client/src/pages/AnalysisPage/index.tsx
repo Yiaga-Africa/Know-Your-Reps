@@ -2,6 +2,7 @@ import { Tab } from "@headlessui/react"
 import React from "react"
 import Footer from "../../components/Footer"
 import NavBar from "../../components/NavBar/NavBar"
+import FemaleLegislatorsAnalysis from "./FemaleLegislatorsAnalysis"
 import HORMemberAnalysis from "./HORMemberAnalysis"
 
 const AnalysisPage = () => {
@@ -67,7 +68,7 @@ const AnalysisPage = () => {
                                 </Tab.Panel>
 
                                 <Tab.Panel>
-                                    {/*TODO: Women Representation  */}
+                                    <FemaleLegislatorsAnalysis />
                                 </Tab.Panel>
 
                                 <Tab.Panel>
