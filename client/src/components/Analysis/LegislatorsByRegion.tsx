@@ -2,6 +2,7 @@ import React from "react"
 import { colors, MapData } from "../../utils/mapData"
 import { gql, useQuery } from "@apollo/client"
 import { Bar } from "react-chartjs-2"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const LegislatorsByRegion = () => {
     const northEastList: string[] = []
@@ -149,7 +150,22 @@ const LegislatorsByRegion = () => {
         // console.log(data.northCentral.aggregate)
     }
 
-    return <>{!loading && <Bar data={chartData} />}</>
+    return (
+        <>
+            <div className="flex justify-center items-center">
+                {!loading ? (
+                    <Bar data={chartData} />
+                ) : (
+                    <FontAwesomeIcon
+                        icon={["fas", "circle-notch"]}
+                        size="2x"
+                        className="text-kyl-green  m-6"
+                        spin
+                    />
+                )}
+            </div>
+        </>
+    )
 }
 
 export default LegislatorsByRegion

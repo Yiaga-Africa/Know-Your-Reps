@@ -29,7 +29,7 @@ export type Legislator = {
 
 // Sorts using the values in object keys for an object array
 
-function dynamicSort(property: string) {
+export const dynamicSort = (property: string) => {
     var sortOrder = 1
     if (property[0] === "-") {
         sortOrder = -1

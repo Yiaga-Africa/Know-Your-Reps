@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 type CardProps = {
     index: number
-    number?: number
+    number?: number | string
     description: string
     image?: string
     isVoter?: boolean

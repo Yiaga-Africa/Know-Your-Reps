@@ -85,6 +85,14 @@ const StateInfoPage = () => {
                 status
                 party
             }
+
+            shoa(where: { state: { _ilike: $stateName } }) {
+                id
+                name
+                district
+                gender
+                party
+            }
         }
     `
 
@@ -104,18 +112,19 @@ const StateInfoPage = () => {
         stateData = data.state_data_by_pk
         const senatorsList: Legislator[] = data.senators
         const representativesList: Legislator[] = data.representatives
-        legislatorList = senatorsList.concat(representativesList)
+        const shoaList: Legislator[] = data.shoa
+        legislatorList = senatorsList.concat(representativesList).concat(shoaList)
     }
 
     return (
         <>
             <NavBar />
             <div className="flex flex-col items-center mt-10">
-                <div className="shadow-md mx-32 flex flex-row p-4 w-[76%]">
+                <div className="shadow-md mx-32 flex flex-row p-4 w-[76%] pl-16">
                     {/* Image */}
-                    <div className="mr-12">
+                    {/* <div className="mr-12">
                         <img className="h-32" src={stateLogo} />
-                    </div>
+                    </div> */}
 
                     {/* Data */}
                     <div className="grid grid-cols-4 gap-y-8 gap-x-14 w-full">
@@ -228,7 +237,7 @@ const StateInfoPage = () => {
                             <div className="table-row-group text-sm text-gray-700">
                                 {!loading ? (
                                     legislatorList
-                                        .sort(dynamicSort("state"))
+                                        .sort(dynamicSort("name"))
                                         .map((legislator: Legislator) =>
                                             /*
                                                 1st ternary evaluates the name and searchtext else moves on
@@ -280,7 +289,8 @@ const StateInfoPage = () => {
                                                     key={`${legislator.id}${legislator.name}`}
                                                 />
                                             ) : // ternary checks the office
-                                            legislator?.status
+                                            legislator?.status &&
+                                              legislator?.status
                                                   ?.toLowerCase()
                                                   .includes(
                                                       searchValue.toLowerCase()

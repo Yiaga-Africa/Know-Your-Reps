@@ -60,6 +60,11 @@ const App = () => {
                 component={SpecificLegislatorPage}
             />
 
+            <Route
+                path={Routes.SPECIFIC_SHOA}
+                component={SpecificLegislatorPage}
+            />
+
             <Route exact path={Routes.BILLS} component={BillsPage} />
 
             <Route exact path={Routes.ANALYSIS} component={AnalysisPage} />

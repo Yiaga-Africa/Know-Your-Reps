@@ -8,9 +8,15 @@ type Props = {
 }
 
 const StateLegislatorTableRow = ({ legislator, index }: Props) => {
-    const type = legislator.status.toLowerCase().includes("senator")
-        ? "senators"
-        : "representatives"
+    let type: string = ""
+
+    if (legislator.status !== undefined) {
+        type = legislator?.status?.toLowerCase().includes("senator")
+            ? "senators"
+            : "representatives"
+    } else {
+        type = "shoa"
+    }
 
     return (
         <div
@@ -21,13 +27,19 @@ const StateLegislatorTableRow = ({ legislator, index }: Props) => {
                 {legislator.name?.toLowerCase()}
             </div>
             <div className="table-cell py-8 break-words pr-2 capitalize">
-                {legislator.district?.toLowerCase()}
+                {legislator.district}
             </div>
             <div className="table-cell py-8 break-words pr-2 capitalize">
                 {legislator.party}
             </div>
-            <div className="table-cell py-8">{legislator.status}</div>
-            <div className="table-cell py-8">{legislator.gender}</div>
+            <div className="table-cell py-8">
+                {legislator.status
+                    ? legislator.status
+                    : "State House of Assembly"}
+            </div>
+            <div className="table-cell py-8 capitalize">
+                {legislator.gender.toLowerCase()}
+            </div>
             <div className="table-cell">
                 <Link to={`/legislators/${type}/${legislator.id}`}>
                     <div

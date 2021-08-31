@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { Doughnut } from "react-chartjs-2"
 
@@ -57,8 +58,8 @@ const LegislatorStatusChart = () => {
 
     return (
         <>
-            {!loading && (
-                <div className="flex flex-row justify-center">
+            <div className="flex justify-center items-center">
+                {!loading ? (
                     <Doughnut
                         height={400}
                         data={chartData}
@@ -68,8 +69,17 @@ const LegislatorStatusChart = () => {
                             maintainAspectRatio: false,
                         }}
                     />
-                </div>
-            )}
+                ) : (
+                    <>
+                        <FontAwesomeIcon
+                            icon={["fas", "circle-notch"]}
+                            size="2x"
+                            className="text-kyl-green  m-6"
+                            spin
+                        />
+                    </>
+                )}
+            </div>
         </>
     )
 }

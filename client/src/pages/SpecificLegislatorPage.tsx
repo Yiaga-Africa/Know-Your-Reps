@@ -27,7 +27,8 @@ const SpecificLegislatorPage = () => {
                       }
                   }
               `
-            : gql`
+            : location === "representatives"
+            ? gql`
                   query GetRepresentative($id: Int!) {
                       representatives_by_pk(id: $id) {
                           name
@@ -40,6 +41,20 @@ const SpecificLegislatorPage = () => {
                       }
                   }
               `
+            : location === "shoa"
+            ? gql`
+                  query GetRepresentative($id: Int!) {
+                      shoa_by_pk(id: $id) {
+                          name
+                          state
+                          district
+                          age
+                          gender
+                          party
+                      }
+                  }
+              `
+            : gql``
 
     const { loading, data } = useQuery(GET_LEGISLATOR, { variables: { id } })
 
@@ -47,7 +62,9 @@ const SpecificLegislatorPage = () => {
         legislatorData =
             location === "senators"
                 ? data.senators_by_pk
-                : data.representatives_by_pk
+                : location === "representatives"
+                ? data.representatives_by_pk
+                : data.shoa_by_pk
     }
 
     const [searchValue, setSearchValue] = useState("")
@@ -65,7 +82,7 @@ const SpecificLegislatorPage = () => {
         paddingLeft: "0.7rem",
     }
 
-    if (isNaN(parseInt(id))) return <Redirect to="/legislators"/>
+    if (isNaN(parseInt(id))) return <Redirect to="/legislators" />
 
     return (
         <>
@@ -107,28 +124,30 @@ const SpecificLegislatorPage = () => {
                                 </>
                             </div>
 
-                            <div className="text-lg font-semibold flex items-center">
-                                <>
-                                    Status:{" "}
-                                    {loading ? (
-                                        // <PlaceholderLoading />
-                                        <ReactPlaceholder
-                                            ready={!loading}
-                                            type={"text"}
-                                            rows={1}
-                                            color="#e8e9eb"
-                                            style={loaderStyle}
-                                        >
-                                            <></>
-                                        </ReactPlaceholder>
-                                    ) : (
-                                        <span className="capitalize font-normal pl-1">
-                                            {legislatorData &&
-                                                legislatorData.status.toLowerCase()}
-                                        </span>
-                                    )}
-                                </>
-                            </div>
+                            {!(location === "shoa") && (
+                                <div className="text-lg font-semibold flex items-center">
+                                    <>
+                                        Status:{" "}
+                                        {loading ? (
+                                            // <PlaceholderLoading />
+                                            <ReactPlaceholder
+                                                ready={!loading}
+                                                type={"text"}
+                                                rows={1}
+                                                color="#e8e9eb"
+                                                style={loaderStyle}
+                                            >
+                                                <></>
+                                            </ReactPlaceholder>
+                                        ) : (
+                                            <span className="capitalize font-normal pl-1">
+                                                {legislatorData &&
+                                                    legislatorData.status.toLowerCase()}
+                                            </span>
+                                        )}
+                                    </>
+                                </div>
+                            )}
 
                             <div className="text-lg font-semibold flex items-center">
                                 <>
@@ -196,7 +215,9 @@ const SpecificLegislatorPage = () => {
                                                 legislatorData.age}
                                         </span>
                                     )}
-                                    <div className="text-xs ml-1">*at the time of election</div>
+                                    <div className="text-xs ml-1">
+                                        *at the time of election
+                                    </div>
                                 </>
                             </div>
 
@@ -217,7 +238,7 @@ const SpecificLegislatorPage = () => {
                                     ) : (
                                         <span className="capitalize font-normal pl-1">
                                             {legislatorData &&
-                                                legislatorData.gender}
+                                                legislatorData.gender.toLowerCase()}
                                         </span>
                                     )}
                                 </>

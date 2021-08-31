@@ -28,12 +28,12 @@ const DashboardPage = () => {
 
     const voterList = [
         {
-            number: 84_004_084,
+            number: '?',
             description: "Registered Voters",
             image: voterRegLogo,
         },
-        { number: 360, description: "Male Voters", image: maleImage },
-        { number: 804, description: "Female Voters", image: femaleImage },
+        { number: '?', description: "Male Voters", image: maleImage },
+        { number: '?', description: "Female Voters", image: femaleImage },
     ]
 
     const geopoliticalZones = [

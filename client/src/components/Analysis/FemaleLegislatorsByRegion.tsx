@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client"
 import { Bar } from "react-chartjs-2"
 import { MapData, colors } from "../../utils/mapData"
 import { useRef } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const FemaleLegislatorsByRegion = () => {
     const northEastList: string[] = []
@@ -47,7 +48,10 @@ const FemaleLegislatorsByRegion = () => {
             $southSouthList: [String!]
         ) {
             northCentral: representatives_aggregate(
-                where: { state: { _in: $northCentralList }, _and: {gender: {_eq: "Female"}} }
+                where: {
+                    state: { _in: $northCentralList }
+                    _and: { gender: { _eq: "Female" } }
+                }
             ) {
                 aggregate {
                     count
@@ -55,7 +59,10 @@ const FemaleLegislatorsByRegion = () => {
             }
 
             northEast: representatives_aggregate(
-                where: { state: { _in: $northEastList }, _and: {gender: {_eq: "Female"}} }
+                where: {
+                    state: { _in: $northEastList }
+                    _and: { gender: { _eq: "Female" } }
+                }
             ) {
                 aggregate {
                     count
@@ -63,7 +70,10 @@ const FemaleLegislatorsByRegion = () => {
             }
 
             northWest: representatives_aggregate(
-                where: { state: { _in: $northWestList }, _and: {gender: {_eq: "Female"}} }
+                where: {
+                    state: { _in: $northWestList }
+                    _and: { gender: { _eq: "Female" } }
+                }
             ) {
                 aggregate {
                     count
@@ -71,7 +81,10 @@ const FemaleLegislatorsByRegion = () => {
             }
 
             southSouth: representatives_aggregate(
-                where: { state: { _in: $southSouthList }, _and: {gender: {_eq: "Female"}} }
+                where: {
+                    state: { _in: $southSouthList }
+                    _and: { gender: { _eq: "Female" } }
+                }
             ) {
                 aggregate {
                     count
@@ -79,7 +92,10 @@ const FemaleLegislatorsByRegion = () => {
             }
 
             southEast: representatives_aggregate(
-                where: { state: { _in: $southEastList }, _and: {gender: {_eq: "Female"}} }
+                where: {
+                    state: { _in: $southEastList }
+                    _and: { gender: { _eq: "Female" } }
+                }
             ) {
                 aggregate {
                     count
@@ -87,7 +103,10 @@ const FemaleLegislatorsByRegion = () => {
             }
 
             southWest: representatives_aggregate(
-                where: { state: { _in: $southWestList }, _and: {gender: {_eq: "Female"}} }
+                where: {
+                    state: { _in: $southWestList }
+                    _and: { gender: { _eq: "Female" } }
+                }
             ) {
                 aggregate {
                     count
@@ -152,7 +171,22 @@ const FemaleLegislatorsByRegion = () => {
 
     const ref = useRef()
 
-    return <>{!loading && <Bar data={chartData} />}</>
+    return (
+        <>
+            <div className="flex justify-center items-center">
+                {!loading ? (
+                    <Bar data={chartData} />
+                ) : (
+                    <FontAwesomeIcon
+                        icon={["fas", "circle-notch"]}
+                        size="2x"
+                        className="text-kyl-green  m-6"
+                        spin
+                    />
+                )}
+            </div>
+        </>
+    )
 }
 
 export default FemaleLegislatorsByRegion
