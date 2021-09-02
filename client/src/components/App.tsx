@@ -13,6 +13,7 @@ import SpecificLegislatorPage from "../pages/SpecificLegislatorPage"
 import "../utils/firebase.ts"
 import BillsPage from "../pages/BillsPage"
 import AnalysisPage from "../pages/AnalysisPage"
+import AdminPage from "../pages/Admin"
 
 const App = () => {
     // const [isClicked, setIsClicked] = useState(false)
@@ -68,6 +69,8 @@ const App = () => {
             <Route exact path={Routes.BILLS} component={BillsPage} />
 
             <Route exact path={Routes.ANALYSIS} component={AnalysisPage} />
+
+            <Route exact path={Routes.ADMIN_HOME} component={AdminPage} />
         </Switch>
     )
 }

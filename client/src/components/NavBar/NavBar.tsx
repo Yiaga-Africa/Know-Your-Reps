@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom"
 import * as Routes from '../../utils/routes'
 import NavBarItem from "./NavBarItem"
 import kylLogo from '../../assets/images/KYLLogoImage.svg'
-import { gql, useQuery } from "@apollo/client"
 
 const NavBar = () => {
     type NavLink = {
@@ -18,22 +17,6 @@ const NavBar = () => {
         { name: 'Analysis', route: Routes.ANALYSIS },
         { name: 'Resources', route: Routes.RESOURCES }
     ]
-
-    const BOOKS_QUERY = gql`
-        query GetBooks {
-            test {
-                test1
-                test2
-            }
-        }
-    `
-
-    const { loading, error, data } = useQuery(BOOKS_QUERY)
-
-    // const matchPath = (pathname: string) => {
-    //     return navLinks.some(link => {
-    //         return link.route === pathname
-    //     })
 
     return (
         <>

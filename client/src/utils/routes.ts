@@ -1,3 +1,4 @@
+// User Routes
 const DASHBOARD = "/"
 const LEGISLATORS = "/legislators"
 const STATE_INFO = "/legislators/states"
@@ -8,6 +9,10 @@ const BILLS = "/bills"
 const SPECIFIC_BILL = "/bills/:id"
 const ANALYSIS = "/analysis"
 const RESOURCES = "/resources"
+
+// Admin Routes
+const ADMIN_LOGIN = "/admin/login"
+const ADMIN_HOME = "/admin/home"
 
 export {
     DASHBOARD,
@@ -20,4 +25,6 @@ export {
     STATE_INFO,
     ANALYSIS,
     RESOURCES,
+    ADMIN_LOGIN,
+    ADMIN_HOME,
 }

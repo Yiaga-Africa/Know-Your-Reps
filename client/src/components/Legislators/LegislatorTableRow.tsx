@@ -2,16 +2,6 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { Legislator } from "../../pages/LegislatorsPage"
 
-// type Legislator = {
-//     name: string,
-//     district: string,
-//     status: string,
-//     gender: string,
-//     party: string,
-//     age: number,
-//     state: string
-// }
-
 type Props = {
     legislator: Legislator
     index: number
@@ -42,7 +32,7 @@ const LegislatorTableRow = ({ legislator, index }: Props) => {
             <div className="table-cell py-8">{legislator.gender}</div>
             <div className="table-cell">
                 <Link to={`/legislators/${type}/${legislator.id}`}>
-                    <div
+                    <button
                         className="
                         cursor-pointer 
                         rounded-xl 
@@ -57,7 +47,7 @@ const LegislatorTableRow = ({ legislator, index }: Props) => {
                     "
                     >
                         View Profile
-                    </div>
+                    </button>
                 </Link>
             </div>
         </div>

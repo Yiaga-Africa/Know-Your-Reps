@@ -15,6 +15,7 @@ import LegislatorTableRow from "../components/Legislators/LegislatorTableRow"
 import { gql, useQuery } from "@apollo/client"
 import { Link } from "react-router-dom"
 import Searchbar from "../components/Searchbar"
+import { Helmet } from "react-helmet"
 
 export type Legislator = {
     id: number
@@ -25,6 +26,7 @@ export type Legislator = {
     district: string
     state: string
     status: string
+    __typename: string
 }
 
 // Sorts using the values in object keys for an object array
@@ -105,6 +107,7 @@ const LegislatorsPage = () => {
 
     return (
         <>
+            <Helmet title={`Legislators | Know Your Legislators`} />
             <NavBar />
 
             <div className="mt-10 flex flex-col">

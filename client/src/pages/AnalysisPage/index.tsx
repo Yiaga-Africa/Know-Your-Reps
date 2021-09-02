@@ -1,16 +1,20 @@
 import { Tab } from "@headlessui/react"
 import React from "react"
+import { Helmet } from "react-helmet"
 import Footer from "../../components/Footer"
 import NavBar from "../../components/NavBar/NavBar"
 import FemaleLegislatorsAnalysis from "./FemaleLegislatorsAnalysis"
 import HORMemberAnalysis from "./HORMemberAnalysis"
+import YouthRepresentationAnalysis from "./YouthRepresentationAnalysis"
 
 const AnalysisPage = () => {
     const setSelection = ({ selected }: any) =>
-        selected ? "border-b-2  border-kyl-green" : ""
+        selected ? "text-kyl-green" : ""
 
     return (
         <>
+            <Helmet title={`Analysis | Know Your Legislators`} />
+
             <NavBar />
             <div className="flex justify-center mt-6">
                 {/* Sidebar */}
@@ -73,6 +77,7 @@ const AnalysisPage = () => {
 
                                 <Tab.Panel>
                                     {/*TODO: Youth Representation  */}
+                                    <YouthRepresentationAnalysis />
                                 </Tab.Panel>
 
                                 <Tab.Panel>

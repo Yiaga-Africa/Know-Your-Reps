@@ -18,6 +18,7 @@ import { Link } from "react-router-dom"
 import Footer from "../components/Footer"
 import Map from "../components/Map"
 import { firebaseStorage } from "../utils/firebase"
+import { Helmet } from "react-helmet"
 
 const DashboardPage = () => {
     const legislatorList = [
@@ -67,6 +68,8 @@ const DashboardPage = () => {
 
     return (
         <>
+            <Helmet title={`Home | Know Your Legislators`} />
+
             <NavBar />
 
             <div className="mt-10 flex flex-col">

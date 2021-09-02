@@ -11,6 +11,7 @@ import { Legislator } from "./LegislatorsPage"
 import { MapData } from "../utils/mapData"
 import StateLegislatorTableRow from "../components/Legislators/StateLegislatorTableRow"
 import Searchbar from "../components/Searchbar"
+import { Helmet } from "react-helmet"
 
 type StateData = {
     id: number
@@ -113,11 +114,15 @@ const StateInfoPage = () => {
         const senatorsList: Legislator[] = data.senators
         const representativesList: Legislator[] = data.representatives
         const shoaList: Legislator[] = data.shoa
-        legislatorList = senatorsList.concat(representativesList).concat(shoaList)
+        legislatorList = senatorsList
+            .concat(representativesList)
+            .concat(shoaList)
     }
 
     return (
         <>
+            <Helmet title={`${MapData[stateId - 1].name} Legislators | Know Your Legislators`} />
+
             <NavBar />
             <div className="flex flex-col items-center mt-10">
                 <div className="shadow-md mx-32 flex flex-row p-4 w-[76%] pl-16">

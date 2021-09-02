@@ -45,7 +45,7 @@ const LegislatorStatusChart = () => {
         ],
     }
 
-    const { data, loading } = useQuery(GET_DATA, {
+    const { data, loading, error } = useQuery(GET_DATA, {
         variables: { newLegislator, returningLegislator },
     })
 
@@ -59,7 +59,7 @@ const LegislatorStatusChart = () => {
     return (
         <>
             <div className="flex justify-center items-center">
-                {!loading ? (
+                {!loading && !error ? (
                     <Doughnut
                         height={400}
                         data={chartData}

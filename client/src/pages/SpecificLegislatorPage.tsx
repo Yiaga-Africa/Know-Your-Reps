@@ -6,6 +6,7 @@ import Footer from "../components/Footer"
 import NavBar from "../components/NavBar/NavBar"
 import { Legislator } from "./LegislatorsPage"
 import ReactPlaceholder from "react-placeholder/lib"
+import { Helmet } from "react-helmet"
 
 const SpecificLegislatorPage = () => {
     // @ts-ignore
@@ -86,6 +87,8 @@ const SpecificLegislatorPage = () => {
 
     return (
         <>
+            <Helmet title={`Legislators | Know Your Legislators`} />
+
             <NavBar />
 
             <div className="flex flex-col mt-10">
@@ -93,10 +96,11 @@ const SpecificLegislatorPage = () => {
                     <div className="flex flex-row space-x-16 shadow-md p-6 w-[80%] justify-center items-center">
                         {/* Image */}
                         <div>
-                            <FontAwesomeIcon
+                            {/* <FontAwesomeIcon
                                 icon={["fas", "user-secret"]}
                                 className="text-[1000%]"
-                            />
+                            /> */}
+                            <img src="https://picsum.photos/200/300" />
                         </div>
 
                         {/* Data */}

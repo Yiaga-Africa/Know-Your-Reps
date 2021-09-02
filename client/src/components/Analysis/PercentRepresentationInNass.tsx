@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { useRef } from "react"
-import { Doughnut } from "react-chartjs-2"
+import { Doughnut, Pie } from "react-chartjs-2"
 
 const PercentRepresentationInNass = () => {
     const maleLegislator = "Male"
@@ -86,7 +86,7 @@ const PercentRepresentationInNass = () => {
         <>
             <div className="flex justify-center items-center">
                 {!loading ? (
-                    <Doughnut
+                    <Pie
                         height={400}
                         data={chartData}
                         options={{

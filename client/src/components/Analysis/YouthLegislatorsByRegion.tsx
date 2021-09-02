@@ -4,7 +4,7 @@ import { gql, useQuery } from "@apollo/client"
 import { Bar } from "react-chartjs-2"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const LegislatorsByRegion = () => {
+const YouthLegislatorsByRegion = () => {
     const northEastList: string[] = []
     const northWestList: string[] = []
     const northCentralList: string[] = []
@@ -47,7 +47,10 @@ const LegislatorsByRegion = () => {
             $southSouthList: [String!]
         ) {
             northCentral: representatives_aggregate(
-                where: { state: { _in: $northCentralList } }
+                where: {
+                    state: { _in: $northCentralList }
+                    _and: { age: { _lt: 36 } }
+                }
             ) {
                 aggregate {
                     count
@@ -55,7 +58,10 @@ const LegislatorsByRegion = () => {
             }
 
             northEast: representatives_aggregate(
-                where: { state: { _in: $northEastList } }
+                where: {
+                    state: { _in: $northEastList }
+                    _and: { age: { _lt: 36 } }
+                }
             ) {
                 aggregate {
                     count
@@ -63,7 +69,10 @@ const LegislatorsByRegion = () => {
             }
 
             northWest: representatives_aggregate(
-                where: { state: { _in: $northWestList } }
+                where: {
+                    state: { _in: $northWestList }
+                    _and: { age: { _lt: 36 } }
+                }
             ) {
                 aggregate {
                     count
@@ -71,7 +80,10 @@ const LegislatorsByRegion = () => {
             }
 
             southSouth: representatives_aggregate(
-                where: { state: { _in: $southSouthList } }
+                where: {
+                    state: { _in: $southSouthList }
+                    _and: { age: { _lt: 36 } }
+                }
             ) {
                 aggregate {
                     count
@@ -79,7 +91,10 @@ const LegislatorsByRegion = () => {
             }
 
             southEast: representatives_aggregate(
-                where: { state: { _in: $southEastList } }
+                where: {
+                    state: { _in: $southEastList }
+                    _and: { age: { _lt: 36 } }
+                }
             ) {
                 aggregate {
                     count
@@ -87,7 +102,10 @@ const LegislatorsByRegion = () => {
             }
 
             southWest: representatives_aggregate(
-                where: { state: { _in: $southWestList } }
+                where: {
+                    state: { _in: $southWestList }
+                    _and: { age: { _lt: 36 } }
+                }
             ) {
                 aggregate {
                     count
@@ -139,6 +157,7 @@ const LegislatorsByRegion = () => {
     }
 
     if (!loading) {
+        console.log(data)
         chartData.datasets[0].data.push(
             data.northCentral.aggregate.count,
             data.northEast.aggregate.count,
@@ -168,4 +187,4 @@ const LegislatorsByRegion = () => {
     )
 }
 
-export default LegislatorsByRegion
+export default YouthLegislatorsByRegion

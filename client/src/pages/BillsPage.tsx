@@ -7,6 +7,7 @@ import pdf from "../assets/images/PDFImage.svg"
 import StatisticCard from "../components/Bills/StatisticCard"
 import Searchbar from "../components/Searchbar"
 import BillsTableRow from "../components/Bills/BillsTableRow"
+import { Helmet } from "react-helmet"
 
 export type Bill = {
     id: number
@@ -61,6 +62,8 @@ const BillsPage = () => {
 
     return (
         <>
+            <Helmet title={`Bills | Know Your Legislators`} />
+
             <NavBar />
 
             <div className="mt-10 flex flex-col items-center ">
