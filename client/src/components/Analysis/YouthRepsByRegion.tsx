@@ -4,7 +4,7 @@ import { gql, useQuery } from "@apollo/client"
 import { Bar } from "react-chartjs-2"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const YouthLegislatorsByRegion = () => {
+const YouthRepsByRegion = () => {
     const northEastList: string[] = []
     const northWestList: string[] = []
     const northCentralList: string[] = []
@@ -157,7 +157,6 @@ const YouthLegislatorsByRegion = () => {
     }
 
     if (!loading) {
-        console.log(data)
         chartData.datasets[0].data.push(
             data.northCentral.aggregate.count,
             data.northEast.aggregate.count,
@@ -187,4 +186,4 @@ const YouthLegislatorsByRegion = () => {
     )
 }
 
-export default YouthLegislatorsByRegion
+export default YouthRepsByRegion

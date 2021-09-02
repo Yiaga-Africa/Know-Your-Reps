@@ -3,8 +3,9 @@ import senateLogo from "../../assets/images/SenateLogoImage.png"
 import repsLogo from "../../assets/images/HORLogoImage.png"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import YouthLegislatorsByRegion from "../../components/Analysis/YouthLegislatorsByRegion"
 import YouthLegStatCard from "../../components/Analysis/YouthLegStatCard"
+import YouthRepsByRegion from "../../components/Analysis/YouthRepsByRegion"
+import YouthSHOAByRegion from "../../components/Analysis/YouthSHOAByRegion"
 
 const YouthRepresentationAnalysis = () => {
     const legislatorData = [
@@ -38,7 +39,8 @@ const YouthRepresentationAnalysis = () => {
             <div className="flex flex-col shadow-md p-4">
                 <div className="flex flex-row justify-between items-center mb-4">
                     <div className="text-white bg-[#E74029] px-3 py-1 rounded-sm">
-                        Youth House of Representatives Members By Region
+                        Youth House of Representatives Members By Region (35 and
+                        under)
                     </div>
 
                     <FontAwesomeIcon
@@ -47,7 +49,23 @@ const YouthRepresentationAnalysis = () => {
                     />
                 </div>
 
-                <YouthLegislatorsByRegion />
+                <YouthRepsByRegion />
+            </div>
+
+            <div className="flex flex-col shadow-md p-4">
+                <div className="flex flex-row justify-between items-center mb-4">
+                    <div className="text-white bg-[#E74029] px-3 py-1 rounded-sm">
+                        Youth State House of Assembly Members By Region (35 and
+                        under)
+                    </div>
+
+                    <FontAwesomeIcon
+                        icon={["fas", "ellipsis-h"]}
+                        className="text-gray-500 cursor-pointer"
+                    />
+                </div>
+
+                <YouthSHOAByRegion />
             </div>
 
             {/* <div className="flex flex-col shadow-md p-4">
