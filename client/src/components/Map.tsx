@@ -29,7 +29,7 @@ const Map = () => {
 
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-[22rem]"
+                className="lg:h-[22rem] h-[16rem]"
                 overflow="visible"
                 viewBox="0 0 841.9 595.3"
             >

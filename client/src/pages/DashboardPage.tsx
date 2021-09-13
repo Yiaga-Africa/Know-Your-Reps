@@ -29,12 +29,12 @@ const DashboardPage = () => {
 
     const voterList = [
         {
-            number: '?',
+            number: "?",
             description: "Registered Voters",
             image: voterRegLogo,
         },
-        { number: '?', description: "Male Voters", image: maleImage },
-        { number: '?', description: "Female Voters", image: femaleImage },
+        { number: "?", description: "Male Voters", image: maleImage },
+        { number: "?", description: "Female Voters", image: femaleImage },
     ]
 
     const geopoliticalZones = [
@@ -72,9 +72,9 @@ const DashboardPage = () => {
 
             <NavBar />
 
-            <div className="mt-10 flex flex-col">
+            <div className="mt-5 lg:mt-10 flex flex-col overflow-hidden">
                 {/* Legislature member count */}
-                <div className="flex space-x-3 justify-center">
+                <div className="flex overflow-auto pb-2 lg:pb-1 space-x-3 lg:justify-center px-3 lg:px-0">
                     {legislatorList.map((element, index) => (
                         <StatisticCard
                             key={index}
@@ -86,7 +86,7 @@ const DashboardPage = () => {
 
                     <Link
                         to="/analysis"
-                        className="flex w-56 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white"
+                        className="flex min-w-[50%] lg:min-w-0 lg:w-56 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white"
                     >
                         <div className="flex flex-col mr-8 font-semibold text-lg">
                             <span>See</span>
@@ -98,9 +98,9 @@ const DashboardPage = () => {
                 </div>
 
                 {/* Map and Bills Section */}
-                <div className="flex flex-row mt-8 space-x-3 justify-center">
+                <div className="flex flex-col lg:flex-row mt-8 lg:space-x-3 lg:justify-center px-3">
                     {/* Geographical Map for SHOA */}
-                    <div className="shadow-md w-[50rem] flex flex-col px-8 py-3">
+                    <div className="shadow-md lg:w-[50rem] flex flex-col px-2 lg:px-8 py-3">
                         {/* Title and ellipses */}
                         <div className="flex flex-row justify-between">
                             <div className="font-semibold mb-5">
@@ -115,17 +115,17 @@ const DashboardPage = () => {
                         </div>
 
                         {/* Map */}
-                        <div className="flex justify-center">
+                        <div className="flex lg:justify-center">
                             {/* <img src={map} className="h-[22rem] w-[30rem] " /> */}
                             <Map />
                         </div>
 
                         {/* Map Legends */}
-                        <div className="flex flex-wrap space-x-4 mt-5">
+                        <div className="invisible lg:visible flex flex-wrap space-x-4 mt-1 lg:mt-5">
                             {geopoliticalZones.map((zone, index) => (
                                 <div
                                     key={`${index}${zone}`}
-                                    className="flex flex-row items-center space-x-3"
+                                    className=" flex flex-row items-center space-x-3"
                                 >
                                     <div
                                         className={`rounded-full h-3 w-3`}
@@ -137,10 +137,20 @@ const DashboardPage = () => {
                                 </div>
                             ))}
                         </div>
+
+                        <div className="lg:invisible flex flex-row items-center space-x-2">
+                            <div
+                                className={`rounded-full h-3 w-3`}
+                                style={{
+                                    backgroundColor: `#3AA76D`,
+                                }}
+                            />
+                            <div>Select State to see SHOA Data</div>
+                        </div>
                     </div>
 
                     {/* Bills */}
-                    <div className="shadow-md w-80">
+                    <div className="shadow-md lg:w-80 mt-6">
                         {/* Title and ellipses */}
                         <div className="flex flex-row justify-between px-4 pt-3">
                             <div className="font-semibold">
@@ -180,11 +190,11 @@ const DashboardPage = () => {
                 </div>
 
                 {/* Analysis of Voter Registration in Nigeria */}
-                <div className="flex flex-col mt-8 mb-8">
-                    <div className="font-semibold ml-[12.5rem] mb-4">
+                <div className="flex flex-col mt-8 mb-8  px-3 lg:px-0">
+                    <div className="font-semibold ml-5 lg:ml-[12.5rem] mb-4">
                         Analysis of the Voter Register in Nigeria
                     </div>
-                    <div className="flex space-x-3 justify-center">
+                    <div className="flex overflow-auto  pb-2 lg:pb-1 space-x-3 lg:justify-center">
                         {voterList.map((element, index) => (
                             <StatisticCard
                                 key={index}
@@ -198,7 +208,7 @@ const DashboardPage = () => {
 
                         <Link
                             to="#"
-                            className="flex w-56 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white"
+                            className="flex min-w-[50%] lg:min-w-0 lg:w-56 shadow-md hover:shadow-lg justify-center items-center bg-kyl-green text-white"
                         >
                             <div className="flex flex-col mr-8 font-semibold text-lg">
                                 <span>See</span>
