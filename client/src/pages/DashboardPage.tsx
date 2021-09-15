@@ -150,7 +150,7 @@ const DashboardPage = () => {
                     </div>
 
                     {/* Bills */}
-                    <div className="shadow-md lg:w-80 mt-6">
+                    <div className="shadow-md lg:w-80 mt-6 lg:mt-0">
                         {/* Title and ellipses */}
                         <div className="flex flex-row justify-between px-4 pt-3">
                             <div className="font-semibold">
