@@ -65,7 +65,7 @@ const StatisticCard = ({ number, description, image }: CardProps) => {
     }
 
     return (
-        <div className="divide-y-2 divide-dashed divide-gray-200 w-72 shadow-md hover:shadow-lg inline-flex flex-col">
+        <div className="divide-y-2 divide-dashed divide-gray-200 min-w-[65%] lg:min-w-0 lg:w-72 shadow-md hover:shadow-lg inline-flex flex-col">
             <div className="py-8 px-6 flex">
                 {image ? (
                     <img

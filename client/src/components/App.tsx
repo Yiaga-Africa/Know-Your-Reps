@@ -14,6 +14,7 @@ import "../utils/firebase.ts"
 import BillsPage from "../pages/BillsPage"
 import AnalysisPage from "../pages/AnalysisPage"
 import AdminPage from "../pages/Admin"
+import ScrollToTopButton from "./ScrollToTopButton"
 
 const App = () => {
     // const [isClicked, setIsClicked] = useState(false)
@@ -37,41 +38,49 @@ const App = () => {
     library.add(fab, fas, far)
 
     return (
-        <Switch>
-            <Route exact path={Routes.DASHBOARD} component={DashboardPage} />
+        <>
+            <Switch>
+                <Route
+                    exact
+                    path={Routes.DASHBOARD}
+                    component={DashboardPage}
+                />
 
-            <Route
-                exact
-                path={Routes.LEGISLATORS}
-                component={LegislatorsPage}
-            />
+                <Route
+                    exact
+                    path={Routes.LEGISLATORS}
+                    component={LegislatorsPage}
+                />
 
-            <Route
-                path={`${Routes.STATE_INFO}/:stateId`}
-                component={StateInfoPage}
-            />
+                <Route
+                    path={`${Routes.STATE_INFO}/:stateId`}
+                    component={StateInfoPage}
+                />
 
-            <Route
-                path={Routes.SPECIFIC_SENATOR}
-                component={SpecificLegislatorPage}
-            />
+                <Route
+                    path={Routes.SPECIFIC_SENATOR}
+                    component={SpecificLegislatorPage}
+                />
 
-            <Route
-                path={Routes.SPECIFIC_REPRESENTATIVE}
-                component={SpecificLegislatorPage}
-            />
+                <Route
+                    path={Routes.SPECIFIC_REPRESENTATIVE}
+                    component={SpecificLegislatorPage}
+                />
 
-            <Route
-                path={Routes.SPECIFIC_SHOA}
-                component={SpecificLegislatorPage}
-            />
+                <Route
+                    path={Routes.SPECIFIC_SHOA}
+                    component={SpecificLegislatorPage}
+                />
 
-            <Route exact path={Routes.BILLS} component={BillsPage} />
+                <Route exact path={Routes.BILLS} component={BillsPage} />
 
-            <Route exact path={Routes.ANALYSIS} component={AnalysisPage} />
+                <Route exact path={Routes.ANALYSIS} component={AnalysisPage} />
 
-            <Route exact path={Routes.ADMIN_HOME} component={AdminPage} />
-        </Switch>
+                <Route exact path={Routes.ADMIN_HOME} component={AdminPage} />
+            </Switch>
+
+            <ScrollToTopButton />
+        </>
     )
 }
 

@@ -58,7 +58,7 @@ const NavBar = () => {
                 style={{
                     visibility: `${mobileMenuOpen ? "visible" : "hidden"}`,
                 }}
-                className="w-full fixed overflow-hidden top-0 left-0 h-screen bg-white pt-6 flex flex-col space-y-10"
+                className="w-full fixed overflow-hidden top-0 left-0 h-screen bg-white pt-6 flex flex-col space-y-10 z-10"
             >
                 <div className="flex flex-row w-screen justify-end">
                     <FontAwesomeIcon

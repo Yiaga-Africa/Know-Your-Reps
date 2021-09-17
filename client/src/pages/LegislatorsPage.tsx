@@ -111,7 +111,7 @@ const LegislatorsPage = () => {
             <NavBar />
 
             <div className="mt-10 flex flex-col">
-                <div className="flex justify-center flex-row space-x-3">
+                <div className="flex overflow-auto pb-2 lg:pb-1 space-x-3 lg:justify-center px-3 lg:px-0">
                     {generalData.map((element, index) => (
                         <StatisticCard
                             key={index}
@@ -122,9 +122,9 @@ const LegislatorsPage = () => {
                 </div>
 
                 {/* Search and Category */}
-                <div className="flex flex-row justify-center mt-10 space-x-6">
+                <div className="flex flex-col lg:flex-row justify-center mt-10 mx-3 lg:mx-0 lg:space-x-6">
                     {/* Sidebar */}
-                    <div className="flex flex-col">
+                    <div className="hidden lg:flex lg:flex-col">
                         {/* Category */}
                         <div className="bg-[#F6F6F6] divide-y-2 divide-dashed divide-gray-200 py-3 shadow-md mb-4">
                             <div className="font-semibold px-5 pb-1">
@@ -192,8 +192,19 @@ const LegislatorsPage = () => {
                         </div>
                     </div>
 
+                    {/* Select Chamber */}
+                    <div className="flex flex-row lg:hidden">
+                        <select className="border-[3px] w-full mb-2 px-2 py-2 border-gray-400 text-gray-700">
+                            <option value="select">Select Chamber</option>
+                            <option value="hor">
+                                House of Representatives
+                            </option>
+                            <option value="hos">House of Senate</option>
+                        </select>
+                    </div>
+
                     {/* Search */}
-                    <div className="flex flex-col w-[61rem] space-y-4">
+                    <div className="flex flex-col lg:w-[61rem] space-y-2 lg:space-y-4">
                         <div className="font-semibold">Search</div>
                         <div>
                             <span className="font-semibold">
@@ -213,28 +224,40 @@ const LegislatorsPage = () => {
                         />
 
                         {/* Legislators Table */}
-                        <div className="table-fixed table w-full border-[1px]">
-                            {/* First Table Row */}
-                            <div className="table-header-group bg-kyl-green text-white mx-2">
-                                <div className="table-cell py-2 pl-4 w-1/6">
-                                    Name
+                        <>
+                            {/* Desktop Table */}
+                            <div className="hidden lg:table-fixed lg:table w-full border-[1px]">
+                                {/* First Table Row */}
+                                <div className="table-header-group bg-kyl-green text-white mx-2">
+                                    <div className="table-cell py-2 pl-4 w-1/6">
+                                        Name
+                                    </div>
+                                    <div className="table-cell w-1/6">
+                                        District
+                                    </div>
+                                    <div className="table-cell w-1/6">
+                                        State
+                                    </div>
+                                    <div className="table-cell w-1/12">Age</div>
+                                    <div className="table-cell w-1/12">
+                                        Party
+                                    </div>
+                                    <div className="table-cell">Status</div>
+                                    <div className="table-cell">Gender</div>
+                                    <div className="table-cell">Details</div>
                                 </div>
-                                <div className="table-cell w-1/6">District</div>
-                                <div className="table-cell w-1/6">State</div>
-                                <div className="table-cell w-1/12">Age</div>
-                                <div className="table-cell w-1/12">Party</div>
-                                <div className="table-cell">Status</div>
-                                <div className="table-cell">Gender</div>
-                                <div className="table-cell">Details</div>
-                            </div>
 
-                            {/* Legistor Data */}
-                            <div className="table-row-group text-sm text-gray-700">
-                                {!loading ? (
-                                    legislatorList
-                                        .sort(dynamicSort("state"))
-                                        .map((legislator: Legislator, index) =>
-                                            /*
+                                {/* Legistor Data */}
+                                <div className="table-row-group text-sm text-gray-700">
+                                    {!loading ? (
+                                        legislatorList
+                                            .sort(dynamicSort("state"))
+                                            .map(
+                                                (
+                                                    legislator: Legislator,
+                                                    index
+                                                ) =>
+                                                    /*
                                                 1st ternary evaluates the name and searchtext else moves on
                                                 2nd ternary checks the seachtext and where they represent then move on to next ternary
                                                 3rd ternary checks the state
@@ -244,98 +267,256 @@ const LegislatorsPage = () => {
                                                 7th ternary checks if the searchtext matches the office held
         
                                             */
-                                            searchValue === "" ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : // ternary evaluates the name and searchtext else moves on
-                                            legislator?.name
-                                                  ?.toLowerCase()
-                                                  .includes(
-                                                      searchValue.toLowerCase()
-                                                  ) ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : // checks the seachtext and where they represent
-                                            legislator?.district
-                                                  ?.toLowerCase()
-                                                  .includes(
-                                                      searchValue.toLowerCase()
-                                                  ) ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : // ternary checks the state
-                                            legislator?.state
-                                                  ?.toLowerCase()
-                                                  .includes(
-                                                      searchValue.toLowerCase()
-                                                  ) ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : // ternary checks the age
-                                            legislator?.age
-                                                  ?.toString()
-                                                  .includes(
-                                                      searchValue.toLowerCase()
-                                                  ) ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : // ternary checks the party
-                                            legislator?.party
-                                                  ?.toLowerCase()
-                                                  .includes(
-                                                      searchValue.toLowerCase()
-                                                  ) ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : // ternary checks the gender
-                                            legislator?.gender
-                                                  ?.toLowerCase()
-                                                  .includes(
-                                                      searchValue.toLowerCase()
-                                                  ) ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : // ternary checks the office
-                                            legislator?.status
-                                                  ?.toLowerCase()
-                                                  .includes(
-                                                      searchValue.toLowerCase()
-                                                  ) ? (
-                                                <LegislatorTableRow
-                                                    legislator={legislator}
-                                                    index={index}
-                                                    key={`${legislator.id}${legislator.name}`}
-                                                />
-                                            ) : (
-                                                <></>
+                                                    searchValue === "" ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary evaluates the name and searchtext else moves on
+                                                    legislator?.name
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // checks the seachtext and where they represent
+                                                    legislator?.district
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the state
+                                                    legislator?.state
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the age
+                                                    legislator?.age
+                                                          ?.toString()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the party
+                                                    legislator?.party
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the gender
+                                                    legislator?.gender
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the office
+                                                    legislator?.status
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : (
+                                                        <></>
+                                                    )
                                             )
-                                        )
-                                ) : (
-                                    <div className="py-2 pl-4">Loading...</div>
-                                )}
+                                    ) : (
+                                        <div className="py-2 pl-4">
+                                            Loading...
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                        </div>
+
+                            {/* Mobile Table */}
+                            <div className="table lg:hidden">
+                                <div className="table-header-group bg-kyl-green text-white mx-2">
+                                    <div className="table-cell py-4 pl-4">
+                                        Name
+                                    </div>
+                                </div>
+
+                                {/* Legistor Data */}
+                                <div className="table-row-group text-sm text-gray-700">
+                                    {!loading ? (
+                                        legislatorList
+                                            .sort(dynamicSort("state"))
+                                            .map(
+                                                (
+                                                    legislator: Legislator,
+                                                    index
+                                                ) =>
+                                                    /*
+                                                1st ternary evaluates the name and searchtext else moves on
+                                                2nd ternary checks the seachtext and where they represent then move on to next ternary
+                                                3rd ternary checks the state
+                                                4th ternary checks the age
+                                                5th ternary checks the party
+                                                6th ternary checks the gender
+                                                7th ternary checks if the searchtext matches the office held
+        
+                                            */
+                                                    searchValue === "" ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary evaluates the name and searchtext else moves on
+                                                    legislator?.name
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // checks the seachtext and where they represent
+                                                    legislator?.district
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the state
+                                                    legislator?.state
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the age
+                                                    legislator?.age
+                                                          ?.toString()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the party
+                                                    legislator?.party
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the gender
+                                                    legislator?.gender
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : // ternary checks the office
+                                                    legislator?.status
+                                                          ?.toLowerCase()
+                                                          .includes(
+                                                              searchValue.toLowerCase()
+                                                          ) ? (
+                                                        <LegislatorTableRow
+                                                            legislator={
+                                                                legislator
+                                                            }
+                                                            index={index}
+                                                            key={`${legislator.id}${legislator.name}`}
+                                                        />
+                                                    ) : (
+                                                        <></>
+                                                    )
+                                            )
+                                    ) : (
+                                        <div className="py-2 pl-4">
+                                            Loading...
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </>
                     </div>
                 </div>
             </div>
