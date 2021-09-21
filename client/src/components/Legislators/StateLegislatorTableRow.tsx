@@ -38,7 +38,7 @@ const StateLegislatorTableRow = ({ legislator, index }: Props) => {
                     : "State House of Assembly"}
             </div>
             <div className="table-cell py-8 capitalize">
-                {legislator.gender.toLowerCase()}
+                {legislator.gender?.toLowerCase()}
             </div>
             <div className="table-cell">
                 <Link to={`/legislators/${type}/${legislator.id}`}>
