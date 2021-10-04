@@ -99,6 +99,12 @@ const LegislatorsPage = () => {
         setSearchValue("")
     }
 
+    const handleChamberChange = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setSearchValue(event.target.value)
+    }
+
     if (!loading) {
         const senatorsList: Legislator[] = data.senators
         const representativesList: Legislator[] = data.representatives
@@ -194,12 +200,15 @@ const LegislatorsPage = () => {
 
                     {/* Select Chamber */}
                     <div className="flex flex-row lg:hidden">
-                        <select className="border-[3px] w-full mb-2 px-2 py-2 border-gray-400 text-gray-700">
+                        <select
+                            className="border-[3px] w-full mb-2 px-2 py-2 border-gray-400 text-gray-700"
+                            onChange={(e) => handleChamberChange(e)}
+                        >
                             <option value="select">Select Chamber</option>
-                            <option value="hor">
+                            <option value="rep">
                                 House of Representatives
                             </option>
-                            <option value="hos">House of Senate</option>
+                            <option value="senator">House of Senate</option>
                         </select>
                     </div>
 

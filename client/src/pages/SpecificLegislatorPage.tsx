@@ -91,20 +91,23 @@ const SpecificLegislatorPage = () => {
 
             <NavBar />
 
-            <div className="flex flex-col mt-10">
+            <div className="flex flex-col mt-10 overflow-hidden">
                 <div className="flex justify-center">
-                    <div className="flex flex-row space-x-16 shadow-md p-6 w-[80%] justify-center items-center">
+                    <div className="flex flex-col lg:flex-row lg:space-x-16 shadow-md p-6 w-full lg:w-[80%] justify-center items-center mx-2 lg:mx-0">
                         {/* Image */}
                         <div>
                             {/* <FontAwesomeIcon
                                 icon={["fas", "user-secret"]}
                                 className="text-[1000%]"
                             /> */}
-                            <img src="https://picsum.photos/200/300" />
+                            <img
+                                src="https://picsum.photos/200/300"
+                                className="rounded-lg"
+                            />
                         </div>
 
                         {/* Data */}
-                        <div className="flex flex-col space-y-3">
+                        <div className="flex flex-col space-y-3 mt-5 lg:mt-0">
                             <div className="text-xl font-semibold flex items-center">
                                 <>
                                     Name:{" "}
@@ -276,12 +279,12 @@ const SpecificLegislatorPage = () => {
 
                 {/* Bills */}
                 <div className="flex flex-col mt-6 justify-start space-y-3">
-                    <div className="flex ml-[9.5rem]">
+                    <div className="flex ml-5 lg:ml-[9.5rem]">
                         <div>Bills Sponsored/Co-Sponsored</div>
                     </div>
 
                     <div className="flex flex-col items-center w-full space-y-4">
-                        <div className="flex flex-row items-center justify-between border-[3px] px-4 py-2 border-gray-400 text-gray-400 w-[80%]">
+                        <div className="flex flex-row items-center justify-between border-[3px] px-4 py-2 border-gray-400 text-gray-400 w-[90%] lg:w-[80%]">
                             {/* Input */}
                             <input
                                 placeholder={
@@ -309,7 +312,7 @@ const SpecificLegislatorPage = () => {
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <div className="table-fixed table w-[80%] border-[1px]">
+                            <div className="lg:table-fixed  hidden lg:table w-[80%] border-[1px]">
                                 {/* First Table Row */}
                                 <div className="table-header-group bg-kyl-green text-white mx-2">
                                     <div className="table-cell py-2 pl-4">
@@ -337,6 +340,14 @@ const SpecificLegislatorPage = () => {
 
                                 {/* Legistor Data */}
                                 <div className="table-row-group text-sm text-gray-700"></div>
+                            </div>
+
+                            <div className="table table-fixed lg:hidden w-[90%]">
+                                <div className="table-header-group bg-kyl-green text-white mx-2">
+                                    <div className="table-cell py-4 pl-4">
+                                        Name
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
