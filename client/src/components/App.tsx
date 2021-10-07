@@ -72,11 +72,17 @@ const App = () => {
                     component={SpecificLegislatorPage}
                 />
 
-                <Route exact path={Routes.BILLS} component={BillsPage} />
+                <Route exact path={Routes.BILLS}
+                component={BillsPage} 
+                />
 
-                <Route exact path={Routes.ANALYSIS} component={AnalysisPage} />
+                <Route exact path={Routes.ANALYSIS}
+                component={AnalysisPage} 
+                />
 
-                <Route exact path={Routes.ADMIN_HOME} component={AdminPage} />
+                <Route exact path={Routes.ADMIN_HOME}
+                component={AdminPage} 
+                />
             </Switch>
 
             <ScrollToTopButton />
