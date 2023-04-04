@@ -17,23 +17,23 @@ import AdminPage from "../pages/Admin"
 import ScrollToTopButton from "./ScrollToTopButton"
 
 const App = () => {
-    // const [isClicked, setIsClicked] = useState(false)
-    // const [serverBody, setServerBody] = useState('')
+    const [isClicked, setIsClicked] = useState(false)
+    const [serverBody, setServerBody] = useState('')
 
-    // const callBackendAPI = async () => {
-    //     setIsClicked(true)
-    //     const res = await fetch('/api/express_backend')
-    //     const body = await res.json()
+    const callBackendAPI = async () => {
+        setIsClicked(true)
+        const res = await fetch('/api/express_backend')
+        const body = await res.json()
 
-    //     if (res.status !== 200) {
-    //         throw Error(body.message)
-    //     }
-    //     setServerBody(body.express)
-    // }
+        if (res.status !== 200) {
+            throw Error(body.message)
+        }
+        setServerBody(body.express)
+    }
 
-    // useEffect(() => {
-    //     callBackendAPI()
-    // })
+    useEffect(() => {
+        callBackendAPI()
+    })
 
     library.add(fab, fas, far)
 
