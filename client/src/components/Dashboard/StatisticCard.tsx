@@ -28,11 +28,7 @@ const StatisticCard = ({
                     count
                 }
             }
-            senators_aggregate {
-                aggregate {
-                    count
-                }
-            }
+            
             shoa_aggregate {
                 aggregate {
                     count
