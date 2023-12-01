@@ -56,12 +56,24 @@ const StatisticCard = ({
                 return null;
         }
     };
-
+    
     return (
         <div className="divide-y-2 divide-dashed divide-gray-200 min-w-[65%] lg:min-w-0 lg:w-72 shadow-md hover:shadow-lg inline-flex flex-col">
-            {/* ... (rest of your component remains unchanged) */}
             <div className="py-8 px-6 flex">
-                {/* ... (rest of your component remains unchanged) */}
+                
+                {image ? (
+                    <img
+                        src={image}
+                        style={{ height: "2.6rem" }}
+                        className="mr-5"
+                    />
+                ) : (
+                    <FontAwesomeIcon
+                        icon={["fas", "house-user"]}
+                        className="mr-5"
+                        style={{ fontSize: "45px" }}
+                    />
+                )}
                 <div className="flex flex-col">
                     <span className="font-semibold">
                         {number ? (
