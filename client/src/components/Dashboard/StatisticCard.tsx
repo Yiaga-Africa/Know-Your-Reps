@@ -18,6 +18,79 @@ const StatisticCard = ({
     image,
     isVoter,
 }: CardProps) => {
+    const GET_AGGREGATE = gql`
+        query GetAggregate {
+            representatives_aggregate {
+                aggregate {
+                    count
+                }
+            }
+            senators_aggregate {
+                aggregate {
+                    count
+                }
+            }
+            shoa_aggregate {
+                aggregate {
+                    count
+                }
+            }
+        }
+    `
+
+    const { data, loading } = useQuery(GET_AGGREGATE)
+
+    const getCount = () => {
+        if (loading) {
+            return null; // Handle loading state
+        }
+
+        switch (description) {
+            case "Senators":
+                return data?.senators_aggregate?.aggregate?.count ?? null;
+            case "HOR Members":
+                return data?.representatives_aggregate?.aggregate?.count ?? null;
+            case "SHOA Members":
+                return data?.shoa_aggregate?.aggregate?.count ?? null;
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <div className="divide-y-2 divide-dashed divide-gray-200 min-w-[65%] lg:min-w-0 lg:w-72 shadow-md hover:shadow-lg inline-flex flex-col">
+            {/* ... (rest of your component remains unchanged) */}
+            <div className="py-8 px-6 flex">
+                {/* ... (rest of your component remains unchanged) */}
+                <div className="flex flex-col">
+                    <span className="font-semibold">
+                        {number ? (
+                            number.toLocaleString()
+                        ) : getCount()}
+                    </span>
+
+                    <span className="font-light text-sm">{description}</span>
+                </div>
+            </div>
+
+            <div className="flex flex-row-reverse p-4 text-sm">
+                <Link to="#">
+                    View {index !== 2 || isVoter ? "List" : "by State"}
+                </Link>
+            </div>
+        </div>
+    )
+}
+
+export default StatisticCard
+
+/* const StatisticCard = ({
+    index,
+    number,
+    description,
+    image,
+    isVoter,
+}: CardProps) => {
     let GET_AGGREGATE
     let type
 
@@ -91,3 +164,4 @@ const StatisticCard = ({
 }
 
 export default StatisticCard
+ */
