@@ -1,18 +1,30 @@
-import React from "react"
-import senateLogo from "../../assets/images/SenateLogoImage.png"
-import repsLogo from "../../assets/images/HORLogoImage.png"
-import LegislatorStatisticCard from "../../components/Analysis/LegislatorStatisticCard"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import LegislatorsByRegion from "../../components/Analysis/LegislatorsByRegion"
-import LegislatorStatusChart from "../../components/Analysis/LegislatorStatusChart"
-
-import { Link } from "react-router-dom"
+import React from "react";
+import senateLogo from "../../assets/images/SenateLogoImage.png";
+import repsLogo from "../../assets/images/HORLogoImage.png";
+import LegislatorStatisticCard from "../../components/Analysis/LegislatorStatisticCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LegislatorsByRegion from "../../components/Analysis/LegislatorsByRegion";
+import LegislatorStatusChart from "../../components/Analysis/LegislatorStatusChart";
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_LEGISLATOR_DATA } from "../../graphql/queries";
 
 const HORMemberAnalysis = () => {
+    const { data, loading, error } = useQuery(GET_LEGISLATOR_DATA);
+
+    if (loading) {
+        return <div>Loading...</div>; // You can replace this with a loading indicator
+    }
+
+    if (error) {
+        console.error("Error fetching data:", error);
+        return <div>Error fetching data</div>; // You can replace this with an error message or component
+    }
+
     const legislatorData = [
         { description: "Senators", image: senateLogo },
         { description: "HOR Members", image: repsLogo },
-    ]
+    ];
 
     return (
         <div className="flex flex-col space-y-10">
@@ -23,6 +35,8 @@ const HORMemberAnalysis = () => {
                         image={legislator.image}
                         key={`card${index}`}
                         index={index}
+                        number={data ? data.senators_aggregate.aggregate.count : 0}
+                        // You can similarly update the number for HOR members based on your GraphQL query structure
                     />
                 ))}
 
@@ -68,7 +82,7 @@ const HORMemberAnalysis = () => {
                 <LegislatorStatusChart />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default HORMemberAnalysis
+export default HORMemberAnalysis;

@@ -1,17 +1,30 @@
-import React from "react"
-import senateLogo from "../../assets/images/SenateLogoImage.png"
-import repsLogo from "../../assets/images/HORLogoImage.png"
-import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import YouthLegStatCard from "../../components/Analysis/YouthLegStatCard"
-import YouthRepsByRegion from "../../components/Analysis/YouthRepsByRegion"
-import YouthSHOAByRegion from "../../components/Analysis/YouthSHOAByRegion"
+import React from "react";
+import senateLogo from "../../assets/images/SenateLogoImage.png";
+import repsLogo from "../../assets/images/HORLogoImage.png";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import YouthLegStatCard from "../../components/Analysis/YouthLegStatCard";
+import YouthRepsByRegion from "../../components/Analysis/YouthRepsByRegion";
+import YouthSHOAByRegion from "../../components/Analysis/YouthSHOAByRegion";
+import { useQuery } from "@apollo/client";
+import { GET_YOUTH_LEGISLATORS_DATA } from "../../graphql/queries";
 
 const YouthRepresentationAnalysis = () => {
+    const { data, loading, error } = useQuery(GET_YOUTH_LEGISLATORS_DATA);
+
+    if (loading) {
+        return <div>Loading...</div>; // You can replace this with a loading indicator
+    }
+
+    if (error) {
+        console.error("Error fetching data:", error);
+        return <div>Error fetching data</div>; // You can replace this with an error message or component
+    }
+
     const legislatorData = [
         { description: "Youth Senators", image: senateLogo },
         { description: "Youth HOR Members", image: repsLogo },
-    ]
+    ];
 
     return (
         <div className="flex flex-col space-y-10">
@@ -21,6 +34,7 @@ const YouthRepresentationAnalysis = () => {
                         description={legislator.description}
                         image={legislator.image}
                         key={`card${index}`}
+                        // You can pass appropriate data based on your GraphQL query structure
                     />
                 ))}
 
@@ -39,8 +53,7 @@ const YouthRepresentationAnalysis = () => {
             <div className="flex flex-col shadow-md p-4">
                 <div className="flex flex-row justify-between items-center mb-4">
                     <div className="text-white bg-[#E74029] px-3 py-1 rounded-sm">
-                        Youth House of Representatives Members By Region (35 and
-                        under)
+                        Youth House of Representatives Members By Region (35 and under)
                     </div>
 
                     <FontAwesomeIcon
@@ -55,8 +68,7 @@ const YouthRepresentationAnalysis = () => {
             <div className="flex flex-col shadow-md p-4">
                 <div className="flex flex-row justify-between items-center mb-4">
                     <div className="text-white bg-[#E74029] px-3 py-1 rounded-sm">
-                        Youth State House of Assembly Members By Region (35 and
-                        under)
+                        Youth State House of Assembly Members By Region (35 and under)
                     </div>
 
                     <FontAwesomeIcon
@@ -67,23 +79,8 @@ const YouthRepresentationAnalysis = () => {
 
                 <YouthSHOAByRegion />
             </div>
-
-            {/* <div className="flex flex-col shadow-md p-4">
-                <div className="flex flex-row justify-between items-center mb-4">
-                    <div className="text-white bg-[#E74029] px-3 py-1 rounded-sm">
-                        New VS Returning Legislators
-                    </div>
-
-                    <FontAwesomeIcon
-                        icon={["fas", "ellipsis-h"]}
-                        className="text-gray-500 cursor-pointer"
-                    />
-                </div> */}
-
-            {/* <LegislatorStatusChart /> */}
-            {/* </div> */}
         </div>
-    )
-}
+    );
+};
 
-export default YouthRepresentationAnalysis
+export default YouthRepresentationAnalysis;

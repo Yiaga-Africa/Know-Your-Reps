@@ -6,8 +6,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import FemaleLegislatorsByRegion from "../../components/Analysis/FemaleLegislatorsByRegion"
 import PercentRepresentationInNass from "../../components/Analysis/PercentRepresentationInNass"
 import { Link } from "react-router-dom"
+import { useQuery } from "@apollo/client"
+import { GET_FEMALE_LEGISLATORS_DATA } from "../../graphql/queries"
 
 const FemaleLegislatorsAnalysis = () => {
+    const { data, loading, error } = useQuery(GET_FEMALE_LEGISLATORS_DATA)
+
+    if (loading) {
+        return <div>Loading...</div>; // You can replace this with a loading indicator
+    }
+
+    if (error) {
+        console.error("Error fetching data:", error)
+        return <div>Error fetching data</div>; // You can replace this with an error message or component
+    }
+
     const femaleLegislatorData = [
         { description: "Female Senators", image: senateLogo },
         { description: "Female HOR Members", image: repsLogo },
@@ -21,6 +34,8 @@ const FemaleLegislatorsAnalysis = () => {
                         description={legislator.description}
                         image={legislator.image}
                         key={`card${index}`}
+                        number={data ? data.senators_aggregate.aggregate.count : 0}
+                        // You can similarly update the number for HOR members based on your GraphQL query structure
                     />
                 ))}
 
