@@ -22,9 +22,9 @@ import { Helmet } from "react-helmet"
 
 const DashboardPage = () => {
     const legislatorList = [
-        { description: "Senators", image: senateLogo },
-        { description: "HOR Members", image: repsLogo },
-        { description: "SHOA Members", image: shoaLogo },
+        { number: "?", description: "Senators", image: senateLogo },
+        { number: "?", description: "HOR Members", image: repsLogo },
+        { number: "?", description: "SHOA Members", image: shoaLogo },
     ]
 
     const voterList = [
