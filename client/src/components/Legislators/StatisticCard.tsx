@@ -104,7 +104,7 @@ type CardProps = {
                 )}
 
                 <div className="flex flex-col">
-                <span className="font-semibold">
+               {/*  <span className="font-semibold">
                     {number ? (
                     number.toLocaleString()
                     ) : description === "Senators" ? (
@@ -120,7 +120,17 @@ type CardProps = {
                     ) : (
                     <></>
                     )}
-                </span>
+                </span> */}
+                <span className="font-semibold">
+                      {number?.toLocaleString() ?? (
+                          description === "Senators" ? data?.senators_aggregate?.aggregate?.count ?? "N/A" :
+                          description === "HOR Members" ? data?.representatives_aggregate?.aggregate?.count ?? "N/A" :
+                          description === "SHOA Members" ? data?.shoa_aggregate?.aggregate?.count ?? "N/A" :
+                          description === "Male Legislators" ? maleCount ?? "N/A" :
+                          description === "Female Legislators" ? femaleCount ?? "N/A" :
+                          "N/A"
+                      )}
+                  </span>
                     <span className="font-light text-sm">{description}</span>
                 </div>
             </div>
