@@ -1,58 +1,54 @@
-import { gql, useQuery } from "@apollo/client"
-import React, { useState } from "react"
-import { Redirect, useParams, withRouter } from "react-router-dom"
-import Footer from "../components/Footer"
-import NavBar from "../components/NavBar/NavBar"
-import stateLogo from "../assets/images/statePicImage.png"
-import StatesDropdown from "../components/Legislators/StatesDropdown"
-import LegislatorTableRow from "../components/Legislators/LegislatorTableRow"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Legislator } from "./LegislatorsPage"
-import { MapData } from "../utils/mapData"
-import StateLegislatorTableRow from "../components/Legislators/StateLegislatorTableRow"
-import Searchbar from "../components/Searchbar"
-import { Helmet } from "react-helmet"
+import { gql, useQuery } from "@apollo/client";
+import React, { useState } from "react";
+import { Redirect, useParams, withRouter } from "react-router-dom";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar/NavBar";
+import stateLogo from "../assets/images/statePicImage.png";
+import StatesDropdown from "../components/Legislators/StatesDropdown";
+import LegislatorTableRow from "../components/Legislators/LegislatorTableRow";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Legislator } from "./LegislatorsPage";
+import { MapData } from "../utils/mapData";
+import StateLegislatorTableRow from "../components/Legislators/StateLegislatorTableRow";
+import Searchbar from "../components/Searchbar";
+import { Helmet } from "react-helmet";
 
 type StateData = {
-    id: number
-    state: string
-    capital: string
-    slogan: string
-    geopolitical_zone: string
-    land_mass: number
-    population: number
-    registered_voters: number
-    polling_units: number
-    voting_points: number
-}
+    id: number;
+    state: string;
+    capital: string;
+    slogan: string;
+    geopolitical_zone: string;
+    land_mass: number;
+    population: number;
+    registered_voters: number;
+    polling_units: number;
+    voting_points: number;
+};
 
 function dynamicSort(property: string) {
-    var sortOrder = 1
+    var sortOrder = 1;
     if (property[0] === "-") {
-        sortOrder = -1
-        property = property.substr(1)
+        sortOrder = -1;
+        property = property.substr(1);
     }
     return function (a: any, b: any) {
-        /* next line works with strings and numbers,
-         * and you may want to customize it to your needs
-         */
         var result =
-            a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0
-        return result * sortOrder
-    }
+            a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+        return result * sortOrder;
+    };
 }
 
-const StateInfoPage = () => {
-    // @ts-ignore
-    let { stateId } = useParams()
-    if (isNaN(parseInt(stateId))) return <Redirect to="/" />
+const StateInfoPage: React.FC = () => {
+    let { stateId } = useParams();
+    if (isNaN(parseInt(stateId))) return <Redirect to="/" />;
 
-    let stateName = `%${MapData[stateId - 1].name}%`
-    const [searchValue, setSearchValue] = useState("")
+    let stateName = `%${MapData[stateId - 1].name}%`;
+    const [searchValue, setSearchValue] = useState("");
 
-    let stateData: StateData | undefined
+    let stateData: StateData | undefined;
 
-    let legislatorList: Legislator[] = []
+    let legislatorList: Legislator[] = [];
 
     const GET_STATE_DATA = gql`
         query StateData($stateId: Int!, $stateName: String!) {
@@ -95,28 +91,28 @@ const StateInfoPage = () => {
                 party
             }
         }
-    `
+    `;
 
     const { loading, error, data } = useQuery(GET_STATE_DATA, {
         variables: { stateId, stateName },
-    })
+    });
 
     const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchValue(event.target.value)
-    }
+        setSearchValue(event.target.value);
+    };
 
     const clearSearch = () => {
-        setSearchValue("")
-    }
+        setSearchValue("");
+    };
 
     if (!loading) {
-        stateData = data.state_data_by_pk
-        const senatorsList: Legislator[] = data.senators
-        const representativesList: Legislator[] = data.representatives
-        const shoaList: Legislator[] = data.shoa
+        stateData = data.state_data_by_pk;
+        const senatorsList: Legislator[] = data.senators;
+        const representativesList: Legislator[] = data.representatives;
+        const shoaList: Legislator[] = data.shoa;
         legislatorList = senatorsList
             .concat(representativesList)
-            .concat(shoaList)
+            .concat(shoaList);
     }
 
     return (
@@ -134,7 +130,6 @@ const StateInfoPage = () => {
                     {/* Data */}
                     <div className="grid grid-cols-4 gap-y-8 gap-x-14 w-full">
                         {/* First Row */}
-
                         <div className="flex flex-col">
                             <div className="text-2xl font-semibold">
                                 {!loading && stateData?.state}
@@ -319,7 +314,7 @@ const StateInfoPage = () => {
             </div>
             <Footer />
         </>
-    )
-}
+    );
+};
 
-export default withRouter(StateInfoPage)
+export default withRouter(StateInfoPage);
